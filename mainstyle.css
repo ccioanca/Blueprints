@@ -15,7 +15,7 @@ body {
 
 .nav-no-scroll * img.logoimg {
     max-width: 40px;
-    margin-top: -10px;
+    margin-top: -13px;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
 }
@@ -220,7 +220,7 @@ a.nav-link:hover:before {
     opacity: 0;
 }
 
-#about {
+#blueprints {
     height: 1600px;
     width: 100vw;
     background-color: #3B3535;
