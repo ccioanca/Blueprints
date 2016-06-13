@@ -20,8 +20,6 @@ body {
     transition: all 0.5s;
 }
 
-.navbar-custom {}
-
 .nav-no-scroll {
     font-size: 17px;
     background-color: rgba(250, 250, 250, 0.2);
@@ -62,8 +60,8 @@ body {
     transition: all 1s;
 }
 
-ul.nav {
-    float: right !important;
+.menu-half {
+    display: inline-block !important;
 }
 
 ul.nav a {
@@ -114,55 +112,6 @@ ul.nav a {
     font-family: 'Product Sans';
     color: #E1E4F0;
     font-size: 20px;
-}
-
-.myButton {
-    -moz-box-shadow: inset 0px 1px 0px 0px #C95966;
-    -webkit-box-shadow: inset 0px 1px 0px 0px #C95966;
-    box-shadow: inset 0px 1px 0px 0px #C95966;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d13b46), color-stop(1, #bc3040));
-    background: -moz-linear-gradient(top, #d13b46 5%, #bc3040 100%);
-    background: -webkit-linear-gradient(top, #d13b46 5%, #bc3040 100%);
-    background: -o-linear-gradient(top, #d13b46 5%, #bc3040 100%);
-    background: -ms-linear-gradient(top, #d13b46 5%, #bc3040 100%);
-    background: linear-gradient(to bottom, #d13b46 5%, #bc3040 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#d13b46', endColorstr='#bc3040', GradientType=0);
-    background-color: #d13b46;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    border: 1px solid #A92B3A !important;
-    display: inline-block;
-    cursor: pointer;
-    color: #2A2626 !important;
-    font-family: 'Product Sans';
-    font-size: 15px;
-    font-weight: bold;
-    padding: 10px 20px;
-    text-decoration: none;
-    text-shadow: 0px 1px 0px #982734;
-    -webkit-transition: color 0.5s;
-    transition: color 0.5s;
-}
-
-.myButton:hover {
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bc3040), color-stop(1, #d13b46));
-    background: -moz-linear-gradient(top, #bc3040 5%, #d13b46 100%);
-    background: -webkit-linear-gradient(top, #bc3040 5%, #d13b46 100%);
-    background: -o-linear-gradient(top, #bc3040 5%, #d13b46 100%);
-    background: -ms-linear-gradient(top, #bc3040 5%, #d13b46 100%);
-    background: linear-gradient(to bottom, #bc3040 5%, #d13b46 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#bc3040', endColorstr='#d13b46', GradientType=0);
-    background-color: #bc3040;
-    border: 1px solid #A92B3A;
-    color: #F8FFED !important;
-    -webkit-transition: color 0.5s;
-    transition: color 0.5s;
-}
-
-.myButton:active {
-    position: relative;
-    top: 1px;
 }
 
 a.text-link {
@@ -317,46 +266,53 @@ a.nav-link:hover:before {
     transform: skewY(-30deg) rotate(60deg);
 }
 
-div.inline { float:left; }
-.clearBoth { clear:both; }
-
-.wrap {
-    position: fixed;
-    width: 168px;
-    top: 92vh;
-    left: 50%;
-    transform: translateX(-50%);
-    border-bottom: 1px solid white;
+.links-bar{
+  position: fixed;
+    min-width: 200px;
+  width: 20%;
+  height: 48px;
+  top: 90vh;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 1px solid white;
+  overflow: hidden;
 }
 
-.social {
-    font-size: 2.5em;
-    height: 64px;
-    width: 100%;
-    display: block;
-    overflow: hidden;
+.ico1{
+  position: absolute;
+  display: inline;
+  top: 24px;
+  width: 48px;
+  left: 15%;
+  transform: translateX(-50%);
 }
 
-.icon {
-    position: relative;
-    top: 32px;
-    -webkit-transition: all 200ms cubic-bezier(.75, 0, .31, 1);
-    -moz-transition: all 200ms cubic-bezier(.75, 0, .31, 1);
-    -ms-transition: all 200ms cubic-bezier(.75, 0, .31, 1);
-    -o-transition: all 200ms cubic-bezier(.75, 0, .31, 1);
-    transition: all 200ms cubic-bezier(.75, 0, .31, 1);
+.ico1:hover, .ico2:hover, .ico3:hover{
+  top: 0px;
 }
 
-.icon:hover {
-    top: 0px;
+.ico1, .ico2, .ico3{
+  -webkit-transition: all 200ms cubic-bezier(.75, 0, .31, 1);
+  -moz-transition: all 200ms cubic-bezier(.75, 0, .31, 1);
+  -ms-transition: all 200ms cubic-bezier(.75, 0, .31, 1);
+  -o-transition: all 200ms cubic-bezier(.75, 0, .31, 1);
+  transition: all 200ms cubic-bezier(.75, 0, .31, 1);
 }
 
-.github-icon, .in-icon, .twitter-icon {
-    position: relative;
-    width: 64px;
-    margin: 0 10px;
+.ico2{
+  position: absolute;
+  display: inline;
+  top: 24px;
+  width: 48px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.in-div{
-    float: right;
+.ico3{
+  position: absolute;
+  display: inline;
+  top: 24px;
+  width: 48px;
+  left: 85%;
+  transform: translateX(-50%);
 }
