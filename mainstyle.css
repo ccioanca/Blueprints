@@ -28,16 +28,24 @@ body {
     transition: all 1s;
 }
 
-.nav-no-scroll * a:hover {
-    color: #E1E4F0 !important;
-}
-
 .nav-scrolled * a.nav-link {
     font-size: 14px;
     padding-left: 5px;
     padding-right: 5px;
 }
+@media handheld, (max-width: 767px) { 
+    .nav-scrolled * a.nav-link {
+        font-size: 17px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
 
+.navbar-default div.navbar-collapse
+{
+    border-top:none;
+    box-shadow:none;
+}
 
 /*
 .nav-scrolled * a:hover {
@@ -87,9 +95,15 @@ ul.nav a {
     color: #E1E4F0;
     display: block;
     text-align: center;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+/*
     padding-top: calc(50vh - 150px);
     margin-left: calc(50% - 225px);
     vertical-align: middle;
+*/
 }
 
 #welcome h1 {
@@ -115,7 +129,8 @@ ul.nav a {
 }
 
 a.text-link {
-    transition: .3s;
+    padding-bottom: 5px;
+    transition: .6s;
     background-position: top left;
     background-image: url(images/linkbg.png);
     -webkit-background-clip: text;
@@ -133,22 +148,22 @@ a.text-link:before {
     right: 0;
     bottom: 3px;
     height: 2px;
-    transition: .3s .1s;
+    transition: .6s .1s;
 }
 
 a.text-link:hover {
-    transition: .6s .1s;
+    transition: .6s .0s;
     background-position: bottom right;
 }
 
 a.text-link:hover:before {
-    transition: .3s;
+    transition: .6s;
     transform: translateY(-100%) scaleY(0);
     opacity: 0;
 }
 
 a.nav-link {
-    transition: .3s;
+    transition: .6s;
     background-position: top left;
     background-image: url(images/linkbg.png);
     -webkit-background-clip: text;
@@ -159,12 +174,12 @@ a.nav-link {
 }
 
 a.nav-link:hover {
-    transition: .3s .1s;
+    transition: .6s .0s;
     background-position: bottom right;
 }
 
 a.nav-link:hover:before {
-    transition: .3s;
+    transition: .0s;
     transform: translateY(-100%) scaleY(0);
     opacity: 0;
 }
