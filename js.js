@@ -9,10 +9,12 @@ $(document).ready(function () {
         if (scrollPosition >= 10 && scrollPosition <= 300) {
             $(".navbar-custom").removeClass('nav-no-scoll');
             $(".navbar-custom").addClass('nav-scrolled');
+            $(".links-bar").css("width", "10%");
         }
         if (scrollPosition <= 10) {
             $(".navbar-custom").removeClass('nav-scrolled');
             $(".navbar-custom").addClass('nav-no-scoll');
+            $(".links-bar").css("width", "20%");
         }
     });
 
@@ -24,7 +26,7 @@ $(document).ready(function () {
                 if (target.length) {
                     $('html,body').animate({
                         scrollTop: target.offset().top
-                    }, 1000);
+                    }, 2000, "easeInOutExpo");
                     return false;
                 }
             }
