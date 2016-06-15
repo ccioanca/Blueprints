@@ -245,6 +245,7 @@ a.nav-link:hover:before {
     color: #f0f0f0;
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
+    z-index: 100;
 }
 
 .corner-ribbon.sticky {
