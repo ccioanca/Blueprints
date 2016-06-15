@@ -9,10 +9,18 @@ $(document).ready(function () {
         if (scrollPosition >= 10 && scrollPosition <= 300) {
             $(".navbar-custom").removeClass('nav-no-scoll');
             $(".navbar-custom").addClass('nav-scrolled');
+            
+            $(".links-bar").addClass('links-bar-scrolled');
+            $(".ico1 ,.ico2 ,.ico3").addClass('ico-scrolled');
+            $(".links-bar").css("width", "10%");
         }
         if (scrollPosition <= 10) {
             $(".navbar-custom").removeClass('nav-scrolled');
             $(".navbar-custom").addClass('nav-no-scoll');
+            
+            $(".links-bar").removeClass('links-bar-scrolled');
+            $(".ico1 ,.ico2 ,.ico3").removeClass('ico-scrolled');
+            $(".links-bar").css("width", "20%");
         }
     });
 
