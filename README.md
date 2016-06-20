@@ -1,3 +1,3 @@
 # Blueprints
 Portfolio mostly.
-test
+http://ccioanca.github.io/Blueprints/
