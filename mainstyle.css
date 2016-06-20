@@ -46,12 +46,6 @@ body {
     box-shadow:none;
 }
 
-/*
-.nav-scrolled * a:hover {
-   color: #D13B46 !important;
-}
-*/
-
 .nav-scrolled * img.logoimg {
     margin-top: 11px;
     margin-left: 15px;
@@ -82,9 +76,7 @@ ul.nav a {
 }
 
 .thumb1 {
-    /*   background: url(images/backtest2.jpg) 50% 50% no-repeat;*/
     background-color: #212121;
-    /* 50% 50% centers image in div */
     width: 100vw;
     height: 100vh;
 }
@@ -98,11 +90,6 @@ ul.nav a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-/*
-    padding-top: calc(50vh - 150px);
-    margin-left: calc(50% - 225px);
-    vertical-align: middle;
-*/
 }
 
 #welcome h1 {
@@ -319,7 +306,6 @@ a.nav-link:hover:before {
     -webkit-transition: .5s;
     transition: .5s;
 }
-
 
 .ico1{
   position: absolute;

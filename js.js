@@ -1,7 +1,3 @@
-//$(document).ready(function(){
-//    $(this).scrollTop(0);
-//});
-
 $(document).ready(function () {
 
     $(window).on('scroll', function () {
