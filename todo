@@ -1,0 +1,23 @@
+separate css and js into folders
+split css into sass modules
+add views folder and subfolders for page organization
+assess assets and images, keep what is needed. 
+asses styles
+rebase website styles on a bootstrap/materialize framework
+
+Pages:
+    - Homepage
+        - Photo
+        - Intro Blurb
+        - Quick Links
+        - Contact.
+
+    - About
+        - Work Experience
+        - Educational Experience
+        - List of Skills
+
+    - Blueprints
+        - Things I'm currently working on. 
+            - Project Cyan
+        - Tomes App - D&D Character Manager.
