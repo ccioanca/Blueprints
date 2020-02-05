@@ -1,6 +1,5 @@
-separate css and js into folders
+
 split css into sass modules
-add views folder and subfolders for page organization
 assess assets and images, keep what is needed. 
 asses styles
 rebase website styles on a bootstrap/materialize framework
