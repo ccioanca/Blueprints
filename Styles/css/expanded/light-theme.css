@@ -1,1 +1,11 @@
-/* No CSS *//*# sourceMappingURL=light-theme.css.map */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: background-color .2s, color .2s;
+  transition: background-color .2s, color .2s;
+}
+
+body {
+  background-color: #F5F6F7;
+}
+/*# sourceMappingURL=light-theme.css.map */

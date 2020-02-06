@@ -1,0 +1,8 @@
+*{ 
+    box-sizing: border-box;
+    transition: background-color .2s, color .2s;
+}
+
+body{
+    background-color: $bg_col;
+}

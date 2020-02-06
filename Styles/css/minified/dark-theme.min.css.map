@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AGAA,AAAA,CAAC,AAAA,CACG,UAAU,CAAE,UAAU,CACtB,UAAU,CAAE,+BAA+B,CAC9C,AAED,AAAA,IAAI,AAAA,CACA,gBAAgB,CDMZ,OAAO,CCLd",
     "sources": [
         "../../scss/dark-theme.scss",
         "../../scss/Variables/_dark-theme-vars.scss",
