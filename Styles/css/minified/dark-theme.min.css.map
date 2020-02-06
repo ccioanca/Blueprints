@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../scss/dark-theme.scss",
+        "../../scss/Variables/_dark-theme-vars.scss",
+        "../../scss/Variables/_variables.scss",
+        "../../scss/_master-styles.scss"
+    ],
+    "names": [],
+    "file": "dark-theme.min.css"
+}
