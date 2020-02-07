@@ -1,11 +1,12 @@
 {
     "version": 3,
-    "mappings": "AGAA,AAAA,CAAC,CAAA;EACG,UAAU,EAAE,UAAU;EACtB,UAAU,EAAE,+BAA+B;CAC9C;;AAED,AAAA,IAAI,CAAA;EACA,gBAAgB,EDKZ,OAAO;CCJd",
+    "mappings": "AGAA,AAAA,CAAC,CAAA;EACG,UAAU,EAAE,UAAU;EACtB,UAAU,EAAE,+BAA+B;CAC9C;;ACFD,AAAA,cAAc,CAAC;EACX,KAAK,EAAE,KAAK;EACZ,gBAAgB,EAAE,IAAI;EACtB,QAAQ,EAAE,QAAQ;EAClB,GAAG,EAAE,IAAI;EACT,IAAI,EAAE,KAAK;EACX,UAAU,EAAE,MAAM;EAClB,WAAW,EAAE,IAAI;EACjB,cAAc,EAAE,GAAG;EACnB,KAAK,EAAE,OAAO;EACd,SAAS,EAAE,cAAc;EACzB,iBAAiB,EAAE,cAAc;EACjC,OAAO,EAAE,GAAG;CAkBf;;AA9BD,AAcI,cAdU,AAcT,OAAO,CAAC;EACL,QAAQ,EAAE,KAAK;CAClB;;AAhBL,AAkBI,cAlBU,AAkBT,OAAO,CAAC;EACL,UAAU,EAAE,CAAC,CAAC,CAAC,CAAC,GAAG,CAAC,kBAAiB;CACxC;;AApBL,AAsBI,cAtBU,AAsBT,aAAa,CAAC;EACX,GAAG,EAAE,IAAI;EACT,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,IAAI;EACZ,IAAI,EAAE,IAAI;EACV,SAAS,EAAE,aAAa;EACxB,iBAAiB,EAAE,cAAc;CACpC",
     "sources": [
         "../../scss/light-theme.scss",
         "../../scss/Variables/_light-theme-vars.scss",
         "../../scss/Variables/_variables.scss",
-        "../../scss/_master-styles.scss"
+        "../../scss/_master-styles.scss",
+        "../../scss/Components/_corner-ribon.scss"
     ],
     "names": [],
     "file": "light-theme.css"
