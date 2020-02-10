@@ -1,0 +1,10 @@
+*{ 
+    box-sizing: border-box;
+    transition: background-color .2s, color .2s; //everything will transition in .2s from one color theme to another. that has a background color or color already applied.
+}
+
+// body{
+//     background-color: $bg_col;
+// }
+
+@import "./Components/_corner-ribon.scss";
