@@ -1,10 +1,26 @@
 *{ 
     box-sizing: border-box;
     transition: background-color .2s, color .2s; //everything will transition in .2s from one color theme to another. that has a background color or color already applied.
+    overflow-x: hidden;
 }
 
-// body{
-//     background-color: $bg_col;
-// }
+::selection {
+    color: rgb(245, 245, 245) !important;
+    background: rgb(33, 33, 33) !important;
+}
+
+body{
+    background-color: $bg_col;
+}
+
+#theme-btn{
+    .far.fa-lightbulb{
+        color: $text_col;
+    }
+    .fas.fa-lightbulb{
+        color: $text_col;
+    }
+}
 
 @import "./Components/_corner-ribon.scss";
+@import "./Components/_button.scss";

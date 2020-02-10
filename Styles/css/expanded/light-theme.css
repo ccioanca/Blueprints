@@ -3,6 +3,29 @@
           box-sizing: border-box;
   -webkit-transition: background-color .2s, color .2s;
   transition: background-color .2s, color .2s;
+  overflow-x: hidden;
+}
+
+::-moz-selection {
+  color: whitesmoke !important;
+  background: #212121 !important;
+}
+
+::selection {
+  color: whitesmoke !important;
+  background: #212121 !important;
+}
+
+body {
+  background-color: #F5F6F7;
+}
+
+#theme-btn .far.fa-lightbulb {
+  color: #212121;
+}
+
+#theme-btn .fas.fa-lightbulb {
+  color: #212121;
 }
 
 .corner-ribbon {
