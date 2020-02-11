@@ -8,17 +8,21 @@ var light_theme = 'Styles/css/minified/light-theme.min.css';
 
 if((window.matchMedia("(prefers-color-scheme: dark)").matches || window.matchMedia("(prefers-color-scheme: no-preference)").matches) && theme == undefined){
     theme = 'dark';
-    $('#theme').attr('href', dark_theme);
 }
 else if(window.matchMedia("(prefers-color-scheme: light)").matches && theme == undefined){
     theme = 'light';
-    $('#theme').attr('href', light_theme);
 }
 
-if(theme == 'dark')
+if(theme == 'dark'){
     $('#theme').attr('href', dark_theme);
-else
+    $('.fa-sun').show();
+    $('.fa-moon').hide();
+}
+else{
     $('#theme').attr('href', light_theme);
+    $('.fa-sun').hide();
+    $('.fa-moon').show();
+}
 
 
 $(document).ready(function () {
@@ -49,12 +53,16 @@ $(document).ready(function () {
             //light
             $('#theme').attr('href', light_theme);
             localStorage.setItem("theme", 'light');
+            $('.fa-sun').hide();
+            $('.fa-moon').show();
         }
         else{
             theme = 'dark';
             //dark
             $('#theme').attr('href', dark_theme);
             localStorage.setItem("theme", 'dark');
+            $('.fa-sun').show();
+            $('.fa-moon').hide();
         }
 
 

@@ -20,11 +20,7 @@ body {
   background-color: #F5F6F7;
 }
 
-#theme-btn .far.fa-lightbulb {
-  color: #212121;
-}
-
-#theme-btn .fas.fa-lightbulb {
+#theme-btn .fa-moon, #theme-btn .fa-sun {
   color: #212121;
 }
 

@@ -14,10 +14,7 @@ body{
 }
 
 #theme-btn{
-    .far.fa-lightbulb{
-        color: $text_col;
-    }
-    .fas.fa-lightbulb{
+    .fa-moon, .fa-sun{
         color: $text_col;
     }
 }
