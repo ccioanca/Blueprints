@@ -23,94 +23,61 @@ body{
     }
 }
 
-@keyframes topbar_f{
-    0% {transform: rotate(0deg);}
-    15% {transform: rotate(5deg);}
-    25% {transform: rotate(5deg);}
-    100% {transform: rotate(-45deg);}
-}
-
-@keyframes bottombar_f{
-    0% {transform: rotate(0deg);}
-    15% {transform: rotate(-5deg);}
-    25% {transform: rotate(-5deg);}
-    100% {transform: rotate(45deg);}
-}
-
-@keyframes midbar_f{
-    0% {width: 28px;}
-    15% {width: 35px;}
-    25% {width: 35px;}
-    100% {width: 0px;}
-}
-
-@keyframes topbar_b{
-    0% {transform: rotate(-45deg);}
-    15% {transform: rotate(-50deg);}
-    25% {transform: rotate(-50deg);}
-    100% {transform: rotate(0deg);}
-}
-
-@keyframes bottombar_b{
-    0% {transform: rotate(45deg);}
-    15% {transform: rotate(50deg);}
-    25% {transform: rotate(50deg);}
-    100% {transform: rotate(0deg);}
-}
-
-@keyframes midbar_b{
-    0% {width: 0px;}
-    35% {width: 0px;}
-    75% {width: 35px;}
-    100% {width: 28px;}
-}
-
 .hamburger-menu{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin: 10px;
-    overflow: hidden;
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    margin-left: 0;
+    cursor: pointer;
+    z-index: 100;
+    overflow: visible;
+    margin-top: 4px;
+    margin-left: auto;
 
-    .bar1, .bar2, .bar3{
-        width: 35px;
-        height: 4px;
-        background-color: $text_col;
-        margin: 3px 0;
-        transition: 0.4s;
-        border-radius: 4px;
+    span{
+        display: block;
+        position: absolute;
+        height: .2em;
+        width: 100%;
+        background: $text_col;
+        border-radius: 5px;
+        opacity: 1;
+        right: 0;
+        left: 0;
+        top: 0;
+        transition: .2s ease-in-out;
+
+        &:nth-child(2), &:nth-child(3){
+            top: .5em;
+            // width: 80%;
+        }
+
+        &:nth-child(4){
+            top: 1em;
+        }
     }
-    .bar1, .bar3{
-        transform-origin: 90% 50%;
-    }
 
-    .bar2{
-        width: 28px;
-    }
+    &.open{
+        span:nth-child(1){
+            top: 8px;
+            left: 50%;
+            width: 0;
+            opacity: 0;
+        }
 
-    &.forwards{
-        .bar1 {
-            animation: topbar_f .2s ease-in-out 0s forwards;
+        span:nth-child(2){
+            transform: rotate(45deg);
         }
-        .bar2 {
-            animation: midbar_f .2s ease-in-out 0s forwards;
+        span:nth-child(3){
+            transform: rotate(-45deg);
         }
-        .bar3 {
-            animation: bottombar_f .2s ease-in-out 0s forwards;
 
-        }
-    }
-
-    &.backwards{
-        .bar1 {
-            animation: topbar_b .2s ease-in-out 0s forwards;
-        }
-        .bar2 {
-            animation: midbar_b .2s ease-in-out 0s forwards;
-        }
-        .bar3 {
-            animation: bottombar_b .2s ease-in-out 0s forwards;
-
+        span:nth-child(4){
+            top: 8px;
+            left: 50%;
+            width: 0;
+            opacity: 0;
         }
     }
 }
