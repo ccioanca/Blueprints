@@ -4,6 +4,10 @@
     overflow-x: hidden;
 }
 
+html, body{
+    margin: 0;
+}
+
 ::selection {
     color: rgb(245, 245, 245) !important;
     background: rgb(33, 33, 33) !important;
@@ -16,6 +20,98 @@ body{
 #theme-btn{
     .fa-moon, .fa-sun{
         color: $text_col;
+    }
+}
+
+@keyframes topbar_f{
+    0% {transform: rotate(0deg);}
+    15% {transform: rotate(5deg);}
+    25% {transform: rotate(5deg);}
+    100% {transform: rotate(-45deg);}
+}
+
+@keyframes bottombar_f{
+    0% {transform: rotate(0deg);}
+    15% {transform: rotate(-5deg);}
+    25% {transform: rotate(-5deg);}
+    100% {transform: rotate(45deg);}
+}
+
+@keyframes midbar_f{
+    0% {width: 28px;}
+    15% {width: 35px;}
+    25% {width: 35px;}
+    100% {width: 0px;}
+}
+
+@keyframes topbar_b{
+    0% {transform: rotate(-45deg);}
+    15% {transform: rotate(-50deg);}
+    25% {transform: rotate(-50deg);}
+    100% {transform: rotate(0deg);}
+}
+
+@keyframes bottombar_b{
+    0% {transform: rotate(45deg);}
+    15% {transform: rotate(50deg);}
+    25% {transform: rotate(50deg);}
+    100% {transform: rotate(0deg);}
+}
+
+@keyframes midbar_b{
+    0% {width: 0px;}
+    35% {width: 0px;}
+    75% {width: 35px;}
+    100% {width: 28px;}
+}
+
+.hamburger-menu{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 10px;
+    overflow: hidden;
+
+    .bar1, .bar2, .bar3{
+        width: 35px;
+        height: 4px;
+        background-color: $text_col;
+        margin: 3px 0;
+        transition: 0.4s;
+        border-radius: 4px;
+    }
+    .bar1, .bar3{
+        transform-origin: 90% 50%;
+    }
+
+    .bar2{
+        width: 28px;
+    }
+
+    &.forwards{
+        .bar1 {
+            animation: topbar_f .2s ease-in-out 0s forwards;
+        }
+        .bar2 {
+            animation: midbar_f .2s ease-in-out 0s forwards;
+        }
+        .bar3 {
+            animation: bottombar_f .2s ease-in-out 0s forwards;
+
+        }
+    }
+
+    &.backwards{
+        .bar1 {
+            animation: topbar_b .2s ease-in-out 0s forwards;
+        }
+        .bar2 {
+            animation: midbar_b .2s ease-in-out 0s forwards;
+        }
+        .bar3 {
+            animation: bottombar_b .2s ease-in-out 0s forwards;
+
+        }
     }
 }
 
