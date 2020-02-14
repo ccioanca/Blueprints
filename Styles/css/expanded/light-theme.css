@@ -28,6 +28,72 @@ body {
   color: #212121;
 }
 
+.corner-ribbon {
+  width: 200px;
+  background-color: #e43;
+  position: absolute;
+  top: 25px;
+  left: -50px;
+  text-align: center;
+  line-height: 50px;
+  letter-spacing: 1px;
+  color: #f0f0f0;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  z-index: 100;
+}
+
+.corner-ribbon.sticky {
+  position: fixed;
+}
+
+.corner-ribbon.shadow {
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.corner-ribbon.bottom-right {
+  top: auto;
+  right: -50px;
+  bottom: 25px;
+  left: auto;
+  transform: rotate(-4deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.hex-container {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hexagon {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 75%;
+  height: 0;
+  padding-bottom: 86.60254%;
+  overflow: hidden;
+  -webkit-transform: rotate(-60deg) skewY(30deg) translateZ(0);
+  transform: rotate(-60deg) skewY(30deg) translateZ(0);
+}
+
+.hexagon::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url(/images/me.jpg);
+  background-position: -13px;
+  background-size: 173px;
+  -webkit-transform: skewY(-30deg) rotate(60deg);
+  transform: skewY(-30deg) rotate(60deg);
+}
+
 .hamburger-menu {
   display: block;
   width: 30px;
@@ -88,36 +154,25 @@ body {
   opacity: 0;
 }
 
-.corner-ribbon {
-  width: 200px;
-  background-color: #e43;
-  position: absolute;
-  top: 25px;
-  left: -50px;
-  text-align: center;
-  line-height: 50px;
-  letter-spacing: 1px;
-  color: #f0f0f0;
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  z-index: 100;
+@font-face {
+  font-family: 'MyWebFont';
+  src: url("/assets/Font/Manrope-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
 }
 
-.corner-ribbon.sticky {
-  position: fixed;
+body, html {
+  font-family: 'Manrope', 'Roboto', 'Ariel', sans-serif;
+  font-weight: 400;
+  font-variation-settings: 'wght' 400;
+  font-variation-ligatures: normal;
+  -webkit-font-feature-settings: 'calt', 'liga';
+          font-feature-settings: 'calt', 'liga';
 }
 
-.corner-ribbon.shadow {
-  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-          box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-}
-
-.corner-ribbon.bottom-right {
-  top: auto;
-  right: -50px;
-  bottom: 25px;
-  left: auto;
-  transform: rotate(-4deg);
-  -webkit-transform: rotate(-45deg);
+*, *:before, *:after {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
 }
 /*# sourceMappingURL=light-theme.css.map */
