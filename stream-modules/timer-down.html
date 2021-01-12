@@ -15,15 +15,21 @@
       background-color: gray;
       font-family: 'Lato', sans-serif;
       color: white;
-    } */
-
-    /* .timer{
+    }
+    
+    .timer{
       display: block;
       font-size: 80px;
       text-shadow: #343253 0 7px 0;
       width: 100%;
       text-align: center;
+      transition: opacity .3s;
     } */
+
+    .fadeOut{
+      opacity: 0;
+      transition: opacity .2s;
+    }
   </style>
 </head>
 <body>
@@ -35,16 +41,14 @@
     const sQP = "seconds";
     $(document).ready(function(){
       urlParams = new URLSearchParams(window.location.search);
-      var minutes = urlParams.get(mQP) || 1;
-      var seconds = urlParams.get(sQP) || 0;
+      var minutes = urlParams.get(mQP) || 0;
+      var seconds = urlParams.get(sQP) || 5;
+      var intervalID;
 
       $("#minutes").html(pad(minutes, 2));
       $("#seconds").html(pad(seconds, 2));
 
       var countDown = function(){
-        if(minutes == 0 && seconds == 0)
-          return;
-
         seconds--;
         console.log(seconds);
         
@@ -57,7 +61,11 @@
         else if(seconds < 0 && minutes == 0)
         {
           //display different message
-          $(".timer").html("Starting Shortly");
+          $(".timer").addClass("fadeOut");
+          setTimeout(function() { 
+            $(".timer").html("Starting Shortly").removeClass('fadeOut');
+          }, 300);
+          clearInterval(intervalID);
         }
         else{
           $("#minutes").html(pad(minutes, 2));
@@ -65,7 +73,7 @@
         }
       }
 
-      setInterval(countDown, 1000);
+      intervalID = setInterval(countDown, 1000);
     });
 
     function pad (str, max) {
