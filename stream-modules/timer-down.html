@@ -36,6 +36,7 @@
   <span class="timer"><span id="minutes">00</span>:<span id="seconds">00</span></span>
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="../Scripts/stream-common.js"></script>
   <script>
     const mQP = "minutes";
     const sQP = "seconds";
@@ -75,13 +76,6 @@
 
       intervalID = setInterval(countDown, 1000);
     });
-
-    function pad (str, max) {
-      str = str.toString();
-      return str.length < max ? pad("0" + str, max) : str;
-    }
-
-
   </script>
 </body>
 </html>

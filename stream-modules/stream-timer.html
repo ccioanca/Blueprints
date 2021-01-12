@@ -1,0 +1,62 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Timer Countdown</title>
+  <meta name="description" content="Custom Timer Countdown.">
+  <meta name="author" content="Cristian">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+  <style>
+    /* body{
+      background-color: gray;
+      font-family: 'Lato', sans-serif;
+      color: white;
+    }
+    
+    .timer{
+      display: block;
+      font-size: 80px;
+      text-shadow: #343253 0 7px 0;
+      width: 100%;
+      text-align: center;
+      transition: opacity .3s;
+    } */
+
+  </style>
+</head>
+<body>
+  <span class="timer"><span id="hours">00</span>:<span id="minutes">00</span></span>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="../Scripts/stream-common.js"></script>
+  <script>
+    const mQP = "hours";
+    const sQP = "minutes";
+    $(document).ready(function(){
+      var hours = 0;
+      var minutes = 0;
+      var intervalID;
+
+      $("#hours").html(pad(hours, 2));
+      $("#minutes").html(pad(minutes, 2));
+
+      var uptimeCounter = function(){
+        minutes++;
+        console.log(minutes);
+        
+        if(minutes > 59){
+          minutes = 0;
+          hours++;
+        }
+        $("#hours").html(pad(hours, 2));
+        $("#minutes").html(pad(minutes, 2));
+      }
+      setInterval(uptimeCounter, 60*1000);
+    });
+  </script>
+</body>
+</html>
