@@ -56,6 +56,13 @@
         $("#minutes").html(pad(minutes, 2));
       }
       setInterval(uptimeCounter, 60*1000);
+
+      document.addEventListener('keydown', function(event) {
+        if (event.ctrlKey && event.altKey && event.key === "F12") {
+          hours = 0;
+          minutes = 0;
+        }
+      });
     });
   </script>
 </body>
