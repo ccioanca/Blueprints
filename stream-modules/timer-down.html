@@ -43,7 +43,10 @@
     $(document).ready(function(){
       urlParams = new URLSearchParams(window.location.search);
       var minutes = urlParams.get(mQP) || 0;
-      var seconds = urlParams.get(sQP) || 5;
+      var seconds = urlParams.get(sQP) || 10;
+
+      var ogMinutes = urlParams.get(mQP) || 0;
+      var ogSeconds = urlParams.get(sQP) || 10;
       var intervalID;
 
       $("#minutes").html(pad(minutes, 2));
@@ -75,6 +78,14 @@
       }
 
       intervalID = setInterval(countDown, 1000);
+
+      document.addEventListener('keydown', function(event) {
+        if (event.ctrlKey && event.altKey && event.key === "F12") {
+            minutes = ogMinutes;
+            seconds = ogSeconds;
+            console.log("works");
+        }
+      });
     });
   </script>
 </body>
