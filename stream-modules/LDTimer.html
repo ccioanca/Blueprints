@@ -33,9 +33,11 @@
   </style>
 </head>
 <body>
-  <span class="timer"><span id="hours">00</span>
-    <span id="minute-container">:<span id="minutes">00</span></span>
-    <span id="second-container">:</span><span id="seconds">00</span></span>
+  <span class="timer">
+    <span id="hour-container"><span id="hours">00</span></span>
+    <span id="minute-container">: <span id="minutes">00</span></span>
+    <span id="second-container" style="display: none;">: <span id="seconds">00</span></span>
+  </span>
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="../Scripts/stream-common.js"></script>
@@ -64,14 +66,26 @@
 
       var countDown = function(){
         seconds--;
+
+        if(hours == 0){
+          $('#second-container').show();
+          $('#hour-container').hide();
+        }
         
         if(seconds < 0 && minutes > 0){
           seconds = 59;
           minutes--;
+          if(minutes < 0)
+          {
+            minutes = 59;
+            hours --;
+          }
+
+          $("#hours").html(pad(hours, 2));
           $("#minutes").html(pad(minutes, 2));
           $("#seconds").html(pad(seconds, 2));
         }
-        else if(seconds < 0 && minutes == 0)
+        else if(seconds < 0 && minutes == 0 && hours == 0)
         {
           clearInterval(intervalID);
         }
