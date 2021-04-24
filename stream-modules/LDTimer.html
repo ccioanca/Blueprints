@@ -36,7 +36,7 @@
   <span class="timer">
     <span id="hour-container"><span id="hours">00</span></span>
     <span id="minute-container">: <span id="minutes">00</span></span>
-    <span id="second-container" style="display: none;">: <span id="seconds">00</span></span>
+    <span id="second-container" style="">: <span id="seconds">00</span></span>
   </span>
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -46,7 +46,7 @@
     const mQP = "minutes";
     const sQP = "seconds";
     $(document).ready(function(){
-      var ldEndtime = new Date(2021, 03, 25, 21, 0, 0); //Apr 25 9pm\
+      var ldEndtime = new Date(2021, 03, 25, 20, 7, 0); //Apr 25 9pm - 2021, 03, 25, 21, 0, 0
     //   console.log("LD:  " + ldEndtime);
     //   console.log("Now: " + Date.now());
       var dateDiff = ldEndtime - Date.now();
@@ -72,7 +72,11 @@
           $('#hour-container').hide();
         }
         
-        if(seconds < 0 && minutes > 0){
+        if(seconds < 0 && minutes == 0 && hours == 0)
+        {
+          clearInterval(intervalID);
+        }
+        else if(seconds < 0){
           seconds = 59;
           minutes--;
           if(minutes < 0)
@@ -84,10 +88,6 @@
           $("#hours").html(pad(hours, 2));
           $("#minutes").html(pad(minutes, 2));
           $("#seconds").html(pad(seconds, 2));
-        }
-        else if(seconds < 0 && minutes == 0 && hours == 0)
-        {
-          clearInterval(intervalID);
         }
         else{
           $("#hours").html(pad(hours, 2));
