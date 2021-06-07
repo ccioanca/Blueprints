@@ -30,7 +30,7 @@ $(document).ready(function(){
 				'transition': 'transform 7s cubic-bezier(.15,.65,.22,1)',
 				'transform': 'translateX(-50%) rotate(' + newdegree  + 'deg)'
 			});
-		}, 1);
+		}, 10);
 
 		// var interval = setInterval(function(){ 
 		// 	clicks += 0.03;
