@@ -20,8 +20,13 @@ $(document).ready(function(){
 
 		$('#background').css({
 			'transition-property': 'none',
-			'transform': 'translateX(-50%) rotate(0deg)'
 		});
+
+		setTimeout(() => {
+			$('#background').css({
+				'transform': 'translateX(-50%) rotate(0deg)'
+			});
+		}, 25);
 
 		var newdegree = +degree + +addegree;
 
@@ -30,7 +35,7 @@ $(document).ready(function(){
 				'transition': 'transform 7s cubic-bezier(.15,.65,.22,1)',
 				'transform': 'translateX(-50%) rotate(' + newdegree  + 'deg)'
 			});
-		}, 10);
+		}, 50);
 
 		// var interval = setInterval(function(){ 
 		// 	clicks += 0.03;
