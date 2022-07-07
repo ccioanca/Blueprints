@@ -44,6 +44,7 @@
       urlParams = new URLSearchParams(window.location.search);
       var minutes = urlParams.get(mQP) || 0;
       var seconds = urlParams.get(sQP) || 10;
+      var message = urlParams.get(message) || "Starting Shortly";
 
       var ogMinutes = urlParams.get(mQP) || 0;
       var ogSeconds = urlParams.get(sQP) || 10;
@@ -67,7 +68,7 @@
           //display different message
           $(".timer").addClass("fadeOut");
           setTimeout(function() { 
-            $(".timer").html("Starting Shortly").removeClass('fadeOut');
+            $(".timer").html("<div class='message'>"+ message +"</div>").removeClass('fadeOut');
           }, 300);
           clearInterval(intervalID);
         }
