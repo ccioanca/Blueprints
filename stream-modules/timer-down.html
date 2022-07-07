@@ -40,11 +40,12 @@
   <script>
     const mQP = "minutes";
     const sQP = "seconds";
+    const messageQP = "message"
     $(document).ready(function(){
       urlParams = new URLSearchParams(window.location.search);
       var minutes = urlParams.get(mQP) || 0;
       var seconds = urlParams.get(sQP) || 10;
-      var message = urlParams.get(message) || "Starting Shortly";
+      var message = urlParams.get(messageQP) || "Starting Shortly";
 
       var ogMinutes = urlParams.get(mQP) || 0;
       var ogSeconds = urlParams.get(sQP) || 10;
