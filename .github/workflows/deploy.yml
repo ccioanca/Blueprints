@@ -29,7 +29,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          enable_jekyll: true
           cname: "ccioan.ca"
           # Since the project is hosted at the root of the repository, the `dist` directory will be directly published.
           # The default branch for GitHub Pages is `gh-pages`, but we can configure it to use `main` or a custom branch.
