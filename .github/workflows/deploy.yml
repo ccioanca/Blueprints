@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Install dependencies
         run: npm install
@@ -29,6 +29,8 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          enable_jekyll: true
+          cname: "ccioan.ca"
           # Since the project is hosted at the root of the repository, the `dist` directory will be directly published.
           # The default branch for GitHub Pages is `gh-pages`, but we can configure it to use `main` or a custom branch.
           # For simplicity, we'll let `peaceiris/actions-gh-pages` handle the `gh-pages` branch creation and deployment.
