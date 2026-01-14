@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+/* You can define your custom theme variables directly in CSS using @theme */
+@theme {
+    --color-primary: #3b82f6;
+    --color-secondary: #8b5cf6;
+    --font-sans: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    /* You can also extend existing Tailwind values or define new ones */
+}
+
+/* Global styles using SCSS */
+body {
+    margin: 0;
+    font-family: var(--font-sans);
+    /* Use your custom font variable */
+    background-color: #242424;
+    /* Example background */
+    color: rgba(255, 255, 255, 0.87);
+    /* Example text color */
+}
+
+a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+}
+
+/* You can keep other global SCSS styles here */
