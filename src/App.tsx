@@ -1,16 +1,7 @@
-import './App.css'
+import { ComponentExample } from "@/components/component-example";
 
-function App() {
-  return (
-    <>
-      <h1>Portfolio</h1>
-      <div className="card">
-        <p>
-          My Portfolio
-        </p>
-      </div>
-    </>
-  )
+export function App() {
+return <ComponentExample />;
 }
 
-export default App
+export default App;
