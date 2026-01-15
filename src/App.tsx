@@ -1,17 +1,16 @@
-import { ComponentExample } from "@/components/component-example"
+import Header from "./components/Header";
+import Hero from "./components/Hero";
 
 function App() {
   return (
-    <div className="flex flex-col mx-auto">
-      <h1 className="text-xl font-medium">Portfolio</h1>
-      <div className="card">
-        <p>
-          My Portfolio
-        </p>
-      </div>
-      <ComponentExample/>
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow pt-16">
+        <Hero />
+        {/* Other sections will go here */}
+      </main>
     </div>
-  )
+  );
 }
 
 export default App;
