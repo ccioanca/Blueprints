@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTheme } from "@/lib/theme-provider";
 import {
   NavigationMenu,
   NavigationMenuLink,
@@ -6,7 +7,8 @@ import {
   NavigationMenuItem,
 } from "@/components/ui/navigation-menu";
 
-const Header = (props: any) => {
+const Header = () => {
+  const { theme, toggleTheme } = useTheme();
   return (
     <NavigationMenu className="fixed">
       <NavigationMenuList className="flex justify-between w-screen p-3">
@@ -26,11 +28,11 @@ const Header = (props: any) => {
         </div>
         <NavigationMenuItem>
           <button
-            onClick={props.themeToggle}
+            onClick={toggleTheme}
             className="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             aria-label="Toggle theme"
           >
-            {props.theme === 'dark' ? (
+            {theme === 'dark' ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
