@@ -7,7 +7,7 @@ interface TypewriterProps {
 }
 
 const Typewriter = ({ typeData, typeTime = 2000, className }: TypewriterProps) => {
-    const [displayText, setDisplayText] = useState("");
+    const [displayText, setDisplayText] = useState("I'm\u00A0");
     const [isDeletingText, setIsDeletingText] = useState(false);
     const [wordIndex, setWordIndex] = useState(0);
     const [charIndex, setCharIndex] = useState(0);
@@ -29,7 +29,6 @@ const Typewriter = ({ typeData, typeTime = 2000, className }: TypewriterProps) =
             return () => clearTimeout(timer);
         }
         else if(charIndex == currentWord.length && !isDeletingText){
-            console.log("set deleting");
             const timer = setTimeout(() => {
                 setIsDeletingText(true);
             }, typeTime);
@@ -37,7 +36,6 @@ const Typewriter = ({ typeData, typeTime = 2000, className }: TypewriterProps) =
             return () => clearTimeout(timer);
         }
         else if(charIndex > 0 && isDeletingText) {
-            console.log("start deleting");
             const timer = setTimeout(() => {
                 setDisplayText((prev) => prev.substring(0, prev.length - 1));
                 setCharIndex((prev) => prev - 1);
@@ -46,10 +44,9 @@ const Typewriter = ({ typeData, typeTime = 2000, className }: TypewriterProps) =
             return () => clearTimeout(timer);
         }
         else {
-            console.log("else");
             // Word is finished, wait for typeTime then move to next word
             const timer = setTimeout(() => {
-                setDisplayText("");
+                setDisplayText("I'm\u00A0");
                 setCharIndex(0);
                 setWordIndex((prev) => (prev + 1) % typeData.length);
                 setIsDeletingText(false);
