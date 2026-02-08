@@ -1,13 +1,39 @@
 @import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/inter";
+@import "./components/font.css"; /*Global import cause we want the fonts to be available at a global level. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+    font-family: 'MyWebFont';
+    src: url('/assets/Font/Manrope-Regular.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+}
+
+body,
+html {
+    font-family: 'Manrope', 'Roboto', 'Ariel', sans-serif;
+    font-weight: 400;
+    font-variation-settings: 'wght' 400;
+    font-variation-ligatures: normal;
+    font-feature-settings: 'calt', 'liga';
+}
+
+*,
+*:before,
+*:after {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
 
 /* You can define your custom theme variables directly in CSS using @theme */
 @theme {
-    --color-primary: #3b82f6;
-    --color-secondary: #8b5cf6;
+    /* --color-primary: #3b82f6; */
+    /* --color-secondary: #8b5cf6; */
     --font-sans: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     /* You can also extend existing Tailwind values or define new ones */
 
@@ -110,4 +136,8 @@
         @apply font-sans bg-background text-foreground;
         margin: 0;
     }
+}
+
+@layer components {
+    @import "./components/typewriter.css";
 }

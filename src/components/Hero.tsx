@@ -23,10 +23,17 @@ const Hero = () => {
             typeTime={2500}
           />
         </div>
-        
         <Button 
           size="xl" 
-          className="mt-8 px-10 py-7 text-lg font-semibold text-white shadow-lg transform transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
+          variant="default"
+          className="mt-8">
+          Contact Me
+        </Button>
+
+        <Button 
+          size="xl" 
+          variant="outline"
+          className="ml-5 mt-8">
           View My Work
         </Button>
       </div>
