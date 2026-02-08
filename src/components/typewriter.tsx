@@ -4,10 +4,11 @@ interface TypewriterProps {
   typeData: Array<string>; // Required prop
   typeTime?: number; // Optional prop
   className?: string; // Optional prop
+  staticText?: string; // Optional prop
 }
 
-const Typewriter = ({ typeData, typeTime = 2000, className }: TypewriterProps) => {
-    const [displayText, setDisplayText] = useState("I'm\u00A0");
+const Typewriter = ({ typeData, typeTime = 2000, className, staticText = ""}: TypewriterProps) => {
+    const [displayText, setDisplayText] = useState(staticText);
     const [isDeletingText, setIsDeletingText] = useState(false);
     const [wordIndex, setWordIndex] = useState(0);
     const [charIndex, setCharIndex] = useState(0);
