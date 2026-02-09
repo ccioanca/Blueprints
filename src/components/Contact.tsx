@@ -95,6 +95,25 @@ const Contact = () => {
             </form>
           </CardContent>
         </Card>
+
+        <Card className='mt-12'>
+          <CardHeader>
+            <CardTitle>
+              <h2 className="text-4xl font-bold text-center">Or!</h2>
+            </CardTitle>
+            <CardDescription>
+              <p className='text-center mb-4'>Get in touch with me manually</p>
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ul className='list-inside'>
+              <li className='list-disc mb-2'>Email:</li>
+              <li className='list-disc mb-2'>Phone:</li>
+              <li className='list-disc mb-2'>LinkedIn:</li>
+              <li className='list-disc mb-2'>GitHub:</li>
+            </ul>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );
