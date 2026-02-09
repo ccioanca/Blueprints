@@ -10,7 +10,7 @@ const TimelineItem = (
     props: TimelineProps
 ) => {
     return (
-        <li className="box">
+        <li className="box my-6">
             <div className="info">
                 <div className="date">
                     <span>{props.dateStart}</span>

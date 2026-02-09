@@ -1,19 +1,17 @@
 import React from 'react';
 import Timeline from './ui/timeline';
 import Competencies from './ui/competencies';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 
 
 const About = () => {
   return (
-    <section id="about" className="py-16">
-      <div className='w-full md:w-1/2 px-8 sm:px-16 md:mx-auto md:px-0'>
+    <section id="about" className="py-16 bg-accent">
+      <div className='section'>
         <h2 className="mb-8">
           About Me
         </h2>
 
-        <h3 className="mb-4">
-          Driving Operational Excellence
-        </h3>
         <p className="mb-4">
           Hello! I'm Cristian, a Developer Lead with a passion for building innovative solutions and leading high-performing specialized teams in complex ecosystems. My current focus is on operational excellence & consistency while helping deliver scalable solutions & competent teams.
         </p>
@@ -38,7 +36,7 @@ const About = () => {
           <li className="list-disc mb-2">2 High-Impact Teams Managed across distributed locations.</li>
         </ul> */}
 
-        <hr className='my-6'/>
+        <hr className='my-12'/>
 
         {/* <svg width="453" height="8" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full max-sm:hidden lg:origin-left lg:scale-x-130"><path d="M2 6.75068C53.4722 -1.10509 368.533 2.14284 451.5 6.75085" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"></path></svg> */}
 
@@ -48,13 +46,16 @@ const About = () => {
 
         <Competencies/>
 
-        <hr className='my-6'/>
+        <hr className='my-12'/>
 
         <h3 className="mb-4">
           Professional Journey
         </h3>
 
         <Timeline/>
+
+        <hr className='my-12' />
+
 
 
       </div>

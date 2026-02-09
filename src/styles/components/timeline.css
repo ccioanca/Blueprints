@@ -1,5 +1,9 @@
 .timeline-container {
-    margin: 0 0 0 30px;
+    margin: 0 0 0 15px;
+    @media (width >=theme(--breakpoint-sm)) {
+        margin: 0 0 0 30px;
+    }
+
 
     & > ul {
         position: relative;
@@ -60,36 +64,50 @@
     background: var(--card);
     position: relative;
     letter-spacing: 2px;
+    container-type: inline-size;
     border-radius: 5px;
     box-sizing: border-box;
     box-shadow: 1px 1px 3px rgba(100, 100, 100, 0.3);
-    margin: 15px 0  15px 30px;
+    margin: 10px 0;
 
-    &:before {
-        content: "";
-        position: absolute;
-        top: 30px;
-        left: -28px;
-        z-index: 1;
-        border: solid 15px transparent;
-        border-right-color: var(--card);
+    @media (width >= theme(--breakpoint-sm)) {
+
+        margin: 15px 0 15px 30px;
+
+        &:before { /*triangle*/
+            content: "";
+            position: absolute;
+            top: 30px;
+            left: -28px;
+            z-index: 1;
+            border: solid 15px transparent;
+            border-right-color: var(--card);
+        }
     }
+
+    
     
     .header{
         display: flex; 
+        flex-direction: column;
         margin-bottom: 1em;
-        .title {
-            text-transform: uppercase;
-            font-weight: bold;
-            
-            &:after{
-                content: "|";
-                padding: 0 1em;
+
+        @container (width >= 30em) {
+            flex-direction: row;
+
+            .sub-title {
+                border-left: 1px solid var(--color-foreground);
+                padding-left: 1em;
             }
         }
 
-        .sub-title {
+        .title {
+            text-transform: uppercase;
+            font-weight: bold;
+            padding-right: 1em;
         }
+
+        
     }
 
     

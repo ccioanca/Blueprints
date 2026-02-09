@@ -57,7 +57,7 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="Your Name"
                   required
-                  className="mt-2 p-3 border border-gray-300 dark:border-gray-600 rounded-md w-full focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                  className="mt-2 p-3 border0"
                 />
               </div>
               <div>
@@ -69,7 +69,7 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="your.email@example.com"
                   required
-                  className="mt-2 p-3 border border-gray-300 dark:border-gray-600 rounded-md w-full focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                  className="mt-2 p-3 border"
                 />
               </div>
               <div>
@@ -81,7 +81,7 @@ const Contact = () => {
                   placeholder="Your message..."
                   rows={5}
                   required
-                  className="mt-2 p-3 min-h-30 border border-gray-300 dark:border-gray-600 rounded-md w-full focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                  className="mt-2 p-3 min-h-30 border"
                 />
               </div>
               <Button
