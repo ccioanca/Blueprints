@@ -145,4 +145,7 @@ html {
 @layer components {
     @import "./components/typewriter.css";
     @import "./components/headers.css";
+    @import "./components/table.css";
+    @import "./components/timeline.css";
+
 }
