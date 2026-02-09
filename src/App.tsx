@@ -2,12 +2,13 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 
 function App() {
 
   return (
-    <div className="w-full min-h-screen bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 relative">
+    <div className="w-full min-h-screen relative">
       <Header/>
       <main>
         <Hero />
@@ -16,6 +17,7 @@ function App() {
         <Projects /> */}
         <Contact />
       </main>
+      <Footer/>
     </div>
   );
 }
