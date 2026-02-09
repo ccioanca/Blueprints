@@ -5,7 +5,7 @@ import Competencies from './ui/competencies';
 
 const About = () => {
   return (
-    <section id="about" className="py-16 bg-indigo-100 dark:bg-gray-800">
+    <section id="about" className="py-16">
       <div className='w-full md:w-1/2 px-8 sm:px-16 md:mx-auto md:px-0'>
         <h2 className="mb-8">
           About Me
@@ -39,6 +39,8 @@ const About = () => {
         </ul> */}
 
         <hr className='my-6'/>
+
+        {/* <svg width="453" height="8" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full max-sm:hidden lg:origin-left lg:scale-x-130"><path d="M2 6.75068C53.4722 -1.10509 368.533 2.14284 451.5 6.75085" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"></path></svg> */}
 
         <h3 className="mb-4">
           Professional Competencies

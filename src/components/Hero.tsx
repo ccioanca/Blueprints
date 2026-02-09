@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section 
       id="hero" 
-      className="h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100 transition-colors duration-500"
+      className="h-screen flex items-center justify-center "
     >
       <div className="relative z-10 text-center px-4">
         <h1 className="mb-4 leading-tight tracking-tight drop-shadow-md">

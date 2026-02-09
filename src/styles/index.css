@@ -32,10 +32,10 @@ html {
 
 /* You can define your custom theme variables directly in CSS using @theme */
 @theme {
-    /* --color-primary: #3b82f6; */
-    /* --color-secondary: #8b5cf6; */
+    /* CUSTOM */
     --font-sans: 'Manrope', serif;
     --font-sans-title: 'Manrope', serif;
+
     /* You can also extend existing Tailwind values or define new ones */
 
     --color-background: var(--background);
@@ -206,7 +206,7 @@ html {
 }
 
 @layer utilities {
-    .section{
+    .section{ /*Creating a section class that standardizes width for the sections*/
         @apply w-full md:w-1/2 px-8 sm:px-16 md:mx-auto md:px-0;
     } 
 }
