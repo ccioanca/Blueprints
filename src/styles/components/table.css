@@ -1,0 +1,17 @@
+tr{
+    @apply p-3;
+    display: flex;
+    border: 4px solid var(--primary);
+    
+    &:not(:last-child){
+        border-bottom: none;
+    }
+
+    td {
+        @apply p-4;
+
+        &:first-child {
+            @apply flex-grow;
+        }
+    }
+}
