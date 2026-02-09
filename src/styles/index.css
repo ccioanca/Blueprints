@@ -36,6 +36,8 @@ html {
     --font-sans: 'Manrope', serif;
     --font-sans-title: 'Manrope', serif;
 
+    --breakpoint-sm: 640px;
+
     /* You can also extend existing Tailwind values or define new ones */
 
     --color-background: var(--background);
@@ -141,23 +143,23 @@ html {
     }
 
     .dark {
-        --background: #0a0a0a;
+        --background: #011114;
         --foreground: #fafafa;
-        --card: #171717;
+        --card: #062224;
         --card-foreground: #fafafa;
-        --popover: #171717;
+        --popover: #062224;
         --popover-foreground: #fafafa;
         --primary: #00ffb3;
-        --primary-foreground: #171717;
+        --primary-foreground: #062224;
         --secondary: #262626;
         --secondary-foreground: #fafafa;
         --muted: #262626;
         --muted-foreground: #a1a1a1;
-        --accent: #262626;
+        --accent: #03181c;
         --accent-foreground: #fafafa;
         --destructive: #ff6467;
         --border: #ffffff1a;
-        --input: #ffffff26;
+        --input: #ffffff4e;
         --ring: #737373;
         --chart-1: #1447e6;
         --chart-2: #00bc7d;
@@ -207,6 +209,6 @@ html {
 
 @layer utilities {
     .section{ /*Creating a section class that standardizes width for the sections*/
-        @apply w-full md:w-1/2 px-8 sm:px-16 md:mx-auto md:px-0;
+        @apply w-full lg:w-1/2 px-4 sm:px-16 lg:mx-auto lg:px-0;
     } 
 }
