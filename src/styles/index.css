@@ -111,12 +111,12 @@ html {
         --border: #e5e5e5;
         --input: #e5e5e5;
         --ring: #a1a1a1;
-        --chart-1: #f54900;
-        --chart-2: #009689;
-        --chart-3: #104e64;
-        --chart-4: #ffb900;
-        --chart-5: #fe9a00;
-        --sidebar: #fafafa;
+        --chart-1: #1447e6;
+        --chart-2: #00bc7d;
+        --chart-3: #fe9a00;
+        --chart-4: #ad46ff;
+        --chart-5: #ff2056;
+        --sidebar: #171717;
         --sidebar-foreground: #0a0a0a;
         --sidebar-primary: #171717;
         --sidebar-primary-foreground: #fafafa;
@@ -205,10 +205,48 @@ html {
     @import "./components/table.css";
     @import "./components/timeline.css";
 
+
+    @property --rotate {
+        syntax: '<angle>';
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    /* #hero{
+        background: linear-gradient(var(--rotate, 0deg), #011114,
+            #031517,
+            #05181a,
+            #061b1d,
+            #071e20,
+            #071e20,
+            #071e20,
+            #071e20,
+            #061b1d,
+            #05181a,
+            #031517,
+            #011114);
+        animation: bg-animate 25s linear infinite;
+    }
+
+    @keyframes bg-animate {
+
+        from{
+            --rotate: 0deg;
+        }
+
+        to{
+            --rotate: 360deg;
+        }
+    } */
+
 }
 
 @layer utilities {
     .section{ /*Creating a section class that standardizes width for the sections*/
         @apply w-full lg:w-1/2 px-4 sm:px-16 lg:mx-auto lg:px-0;
     } 
+    .section-wide {
+        /*Creating a section class that standardizes width for the sections*/
+        @apply w-full lg:w-8/10 px-4 sm:px-16 lg:mx-auto lg:px-0;
+    }
 }
