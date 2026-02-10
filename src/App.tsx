@@ -4,6 +4,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { Toaster } from '@/components/ui/sonner';
+import Projects from "./components/Projects";
 
 
 function App() {
@@ -14,8 +15,7 @@ function App() {
       <main>
         <Hero />
         <About />
-        {/* <Skills />
-        <Projects /> */}
+        <Projects />
         <Contact />
       </main>
       <Footer/>

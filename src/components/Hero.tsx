@@ -24,10 +24,12 @@ const Hero = () => {
             staticText={"I'm\u00A0"}
           />
         </div>
-        <Button 
+        
+        <div className='flex flex-col md:flex-row'>
+          <Button 
           size="xl" 
           variant="default"
-          className="mt-8" asChild>
+          className="mt-8 mx-auto" asChild>
           <a href='#contact'>
             Contact Me
           </a>
@@ -35,9 +37,12 @@ const Hero = () => {
         <Button 
           size="xl" 
           variant="outline"
-          className="ml-5 mt-8">
-          View My Work
+          className="ml-5 mt-8 mx-auto"
+          asChild>
+          <a href="#projects">View My Work</a>
         </Button>
+        </div>
+        
       </div>
     </section>
   );
