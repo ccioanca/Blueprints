@@ -46,34 +46,10 @@ const items = [
 
 const Competencies = () => {
     return (
-        // <table>
-        //   <tbody>
-        //     <tr>
-        //       <td>Strategic Leadership</td>
-        //       <td>test</td>
-        //     </tr>
-        //     <tr>
-        //       <td>Technical Management</td>
-        //       <td>test</td>
-        //     </tr>
-        //     <tr>
-        //       <td>Backend Development</td>
-        //       <td>test</td>
-        //     </tr>
-        //     <tr>
-        //       <td>Frontend Development</td>
-        //       <td>test</td>
-        //     </tr>
-        //     <tr>
-        //       <td>Design</td>
-        //       <td>test</td>
-        //     </tr>
-        //   </tbody>
-        // </table>
-      <Accordion type="single" collapsible={true} className="rounded-lg border">
+      <Accordion type="single" collapsible={true} className="rounded-lg border bg-card">
         {items.map((item) => (
           <AccordionItem key={item.value} value={item.value} className="border-b px-4 last:border-b-0">
-            <AccordionTrigger className="cursor-pointer">{item.trigger}</AccordionTrigger>
+            <AccordionTrigger className="cursor-pointer text-lg">{item.trigger}</AccordionTrigger>
             <AccordionContent>{item.content}</AccordionContent>
           </AccordionItem>
         ))}
