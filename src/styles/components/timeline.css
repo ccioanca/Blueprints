@@ -18,7 +18,7 @@
             left: -20px;
             height: 100%;
             width: 4px;
-            background: linear-gradient(180deg, var(--card) calc(100% - 300px), transparent 100%);
+            background: linear-gradient(180deg, var(--color-border) calc(100% - 300px), transparent 100%);
             /* border: 2px solid #aaa; */
         }
     }
@@ -31,11 +31,11 @@
         position: absolute;
         display: block;
         top: 30px;
-        left: -30px;
-        width: 25px;
-        height: 25px;
-        border: 5px solid var(--card);
-        background: var(--color-primary);
+        left: -34px;
+        width: 30px;
+        height: 30px;
+        border: 8px solid var(--color-accent);
+        background: var(--color-chart-4);
         border-radius: 100%;
     }
 }
@@ -67,8 +67,9 @@
     container-type: inline-size;
     border-radius: 5px;
     box-sizing: border-box;
-    box-shadow: 1px 1px 3px rgba(100, 100, 100, 0.3);
     margin: 10px 0;
+    border: 1px solid var(--color-border);
+    /* box-shadow: 0px 0px 8px var(--color-background); */
 
     @media (width >= theme(--breakpoint-sm)) {
 

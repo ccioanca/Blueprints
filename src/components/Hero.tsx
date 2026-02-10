@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button';
-import React from 'react';
-import Typewriter from './typewriter';
+import Typewriter from '@/components/typewriter';
 
 const Hero = () => {
   return (

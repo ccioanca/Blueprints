@@ -119,12 +119,12 @@ const Contact = () => {
               <h2 className="text-4xl font-bold text-center">Reach Out Manually!</h2>
             </CardTitle>
             <CardDescription>
-              <p className='text-center mb-4'>You can also connect with me DYI-style</p>
+              <p className='text-center mb-4'>You can also connect with me DYI-style by clicking on one of the buttons below</p>
             </CardDescription>
           </CardHeader>
           <CardContent>
 
-            <div className='w-full flex justify-between mb-8'>
+            <div className='w-full max-w-[30em] mx-auto flex justify-between mb-8'>
               <Button asChild size="lg" variant='outline'>
                 <a href='mailto:cristian.cioanca@gmail.com'>
                   <MailIcon className="size-6"/>
