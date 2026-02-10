@@ -1,6 +1,5 @@
-import React from 'react';
 import Timeline from './ui/timeline';
-import Competencies from '@/components/competencies';
+import Competencies from '@/components/Competencies';
 
 
 const About = () => {
