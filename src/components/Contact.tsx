@@ -4,9 +4,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowDownIcon } from 'lucide-react';
+import { DownloadIcon, GithubIcon, LinkedinIcon, MailIcon, PhoneCallIcon } from 'lucide-react';
 import { toast } from 'sonner';
-import { error } from 'node:console';
 
 
 const Contact = () => {
@@ -52,7 +51,7 @@ const Contact = () => {
 
 
   return (
-    <section id="contact" className="py-16">
+    <section id="contact" className="py-16 bg-accent">
       
       <div className="container mx-auto section">
         <Card className=''>
@@ -117,24 +116,41 @@ const Contact = () => {
         <Card className='mt-12'>
           <CardHeader>
             <CardTitle>
-              <h2 className="text-4xl font-bold text-center">Or!</h2>
+              <h2 className="text-4xl font-bold text-center">Reach Out Manually!</h2>
             </CardTitle>
             <CardDescription>
-              <p className='text-center mb-4'>Get in touch with me manually</p>
+              <p className='text-center mb-4'>You can also connect with me DYI-style</p>
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <ul className='list-inside'>
-              <li className='list-disc mb-2'>Email:</li>
-              <li className='list-disc mb-2'>Phone:</li>
-              <li className='list-disc mb-2'>LinkedIn:</li>
-              <li className='list-disc mb-2'>GitHub:</li>
-            </ul>
+
+            <div className='w-full flex justify-between mb-8'>
+              <Button asChild size="lg" variant='outline'>
+                <a href='mailto:cristian.cioanca@gmail.com'>
+                  <MailIcon className="size-6"/>
+                </a>
+              </Button>
+              <Button asChild size="lg" variant='outline'>
+                <a href='tel:2263733412'>
+                  <PhoneCallIcon className="size-6" />
+                </a>
+              </Button>
+              <Button asChild size="lg" variant='outline'>
+                <a href='https://github.com/ccioanca'>
+                  <GithubIcon className="size-6" />
+                </a>
+              </Button>
+              <Button asChild size="lg" variant='outline'>
+                <a href='https://www.linkedin.com/in/cristian-cioanca/'>
+                  <LinkedinIcon className="size-6" />
+                </a>
+              </Button>
+            </div>
             <p className='text-center mb-4'>And grab a copy of my resume while you're here</p>
             <div className='flex justify-center'>
               <Button className='mx-auto' asChild>
                 <a href='/public/assets/Resume Cristian cioanca.pdf' download={"Resume-Cristian.pdf"}>
-                  <ArrowDownIcon /> My Resume
+                  <DownloadIcon /> My Resume
                 </a>
               </Button>
             </div>
