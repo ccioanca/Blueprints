@@ -24,14 +24,14 @@ const Hero = () => {
             staticText={"I'm\u00A0"}
           />
         </div>
-        <a href='#contact'>
-          <Button 
-            size="xl" 
-            variant="default"
-            className="mt-8">
+        <Button 
+          size="xl" 
+          variant="default"
+          className="mt-8" asChild>
+          <a href='#contact'>
             Contact Me
-          </Button>
-        </a>
+          </a>
+        </Button>
         <Button 
           size="xl" 
           variant="outline"
