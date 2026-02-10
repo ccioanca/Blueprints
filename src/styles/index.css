@@ -249,4 +249,8 @@ html {
         /*Creating a section class that standardizes width for the sections*/
         @apply w-full lg:w-8/10 px-4 sm:px-16 lg:mx-auto lg:px-0;
     }
+
+    b{
+        color: var(--color-primary);
+    }
 }
