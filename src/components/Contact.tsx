@@ -4,6 +4,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { ArrowDownIcon } from 'lucide-react';
+import { toast } from 'sonner';
+import { error } from 'node:console';
 
 
 const Contact = () => {
@@ -24,14 +27,29 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    // Here you would typically send the form data to a backend service
-    alert("Thank you for your message! I will get back to you soon.");
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
+
+    toast.promise(
+      () => new Promise<{description: string}>((resolve, reject) =>
+        setTimeout(() => resolve({ description: "I'll get back to you shortly!" }), 1000)
+        // setTimeout(() => error({ description: "Error submitting form. Try again shortly." }), 1000)
+      ),
+      {
+        loading: "Loading...",
+        success: "Form Submitted Successfully",
+        error: "Error Submitting Form",
+        description: (data) => {
+          return data.description;
+        },
+        position: 'top-center'
+      }
+    )
+    // setFormData({
+    //   name: "",
+    //   email: "",
+    //   message: "",
+    // });
   };
+
 
   return (
     <section id="contact" className="py-16">
@@ -112,6 +130,15 @@ const Contact = () => {
               <li className='list-disc mb-2'>LinkedIn:</li>
               <li className='list-disc mb-2'>GitHub:</li>
             </ul>
+            <p className='text-center mb-4'>And grab a copy of my resume while you're here</p>
+            <div className='flex justify-center'>
+              <Button className='mx-auto' asChild>
+                <a href='/public/assets/Resume Cristian cioanca.pdf' download={"Resume-Cristian.pdf"}>
+                  <ArrowDownIcon /> My Resume
+                </a>
+              </Button>
+            </div>
+            
           </CardContent>
         </Card>
       </div>

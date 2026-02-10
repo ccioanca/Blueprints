@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import { Toaster } from '@/components/ui/sonner';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Contact />
       </main>
       <Footer/>
+      <Toaster />
     </div>
   );
 }
