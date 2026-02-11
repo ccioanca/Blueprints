@@ -31,10 +31,11 @@
         position: absolute;
         display: block;
         top: 30px;
-        left: -34px;
-        width: 30px;
-        height: 30px;
-        border: 8px solid var(--color-accent);
+        left: calc(-18px - 15px + 4px + 1px); /* width - info padding + line width + border*/
+        width: 18px;
+        height: 18px;
+        border: 1px solid var(--color-background);
+        outline: 12px solid var(--color-accent);
         background: var(--color-chart-4);
         border-radius: 100%;
     }
