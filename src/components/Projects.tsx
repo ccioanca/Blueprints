@@ -59,12 +59,12 @@ const projectData: ProjectProps[] = [
 
 const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, tags, githubLink, liveLink }) => {
   return (
-    <Card className="flex flex-col h-full overflow-hidden bg-card shadow-sm hover:shadow-xl transition-shadow duration-300 shadow-white">
+    <Card className="flex flex-col h-full overflow-hidden bg-card">
       <img src={image} alt={title} className="w-full h-0 lg:h-80 object-cover" />
       <CardHeader>
         <CardTitle className="text-2xl font-bold">{title}</CardTitle>
         <CardDescription className="mt-2 flex flex-wrap gap-2">
-          {tags.map((tag) => (
+          {tags.map((tag) => (  
             <Badge key={tag} className="bg-chart-4">
               {tag}
             </Badge>
@@ -78,7 +78,7 @@ const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, tags, 
         {githubLink ? (
           <Button asChild variant="secondary" className="flex items-center gap-2 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600">
             <a href={githubLink} target="_blank" rel="noopener noreferrer">
-              <GithubIcon className="h-4 w-4" /> GitHub
+              <GithubIcon className="h-4 w-4" /> GitHub <ExternalLinkIcon className="h-3 w-3" />
             </a>
           </Button>
         ) : 
@@ -87,13 +87,6 @@ const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, tags, 
               <LockIcon/> Private Repository
             </Badge>
         )}
-        {/* {liveLink && (
-          <Button asChild className="flex items-center gap-2">
-            <a href={liveLink} target="_blank" rel="noopener noreferrer">
-              <ExternalLinkIcon className="h-4 w-4" /> Live Demo
-            </a>
-          </Button>
-        )} */}
       </CardFooter>
     </Card>
   );
@@ -115,7 +108,7 @@ const Projects = () => {
               align: "center",
               loop: true,
             }}>
-            <CarouselContent>
+            <CarouselContent className='py-2'>
               {projectData.map((project, index) => (
                 <CarouselItem key={index} className='lg:basis-1/2 select-none'>
                     <ProjectCard key={index} {...project} />
