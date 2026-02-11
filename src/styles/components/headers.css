@@ -1,11 +1,16 @@
 h1{ 
-    @apply text-6xl sm:text-7xl font-extrabold
+    @apply text-6xl sm:text-7xl font-extrabold;
+    font-variation-settings: "wght" 850;
+    /* letter-spacing: 0.2rem !important; */
 }
 
 h2 {
-    @apply text-3xl sm:text-5xl font-extrabold
+    @apply text-3xl sm:text-5xl;
+    font-variation-settings: "wght" 650;
 }
 
 h3 {
-    @apply text-2xl sm:text-3xl font-extrabold
+    @apply text-2xl sm:text-3xl;
+    font-variation-settings: "wght" 550;
+
 }

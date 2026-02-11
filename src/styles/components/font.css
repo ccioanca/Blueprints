@@ -26,6 +26,22 @@
   font-style: normal;
   font-weight: 400; }
 
+
+  @font-face {
+  font-family: "Anton";
+  src: url("/Font/Anton-Regular.ttf") format("TrueType");
+  font-style: normal;
+  font-weight: 400; }
+
+  @font-face {
+  font-family: "DMSans";
+  src: url("/Font/DMSans-VariableFont_opsz,wght.ttf") format("TrueType");
+  font-style: normal;
+font-weight: normal;
+  font-variation-settings:
+    "wght" 400,
+    "wdth" 300;}
+
 /* body, html {
   font-family: 'Manrope VF', Manrope, sans-serif;
   font-weight: 500;
