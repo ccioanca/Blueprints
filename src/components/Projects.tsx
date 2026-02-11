@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from '@/components/ui/button';
-import { ExternalLinkIcon, GithubIcon } from 'lucide-react';
+import { ExternalLinkIcon, GithubIcon, LockIcon } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
 
 interface ProjectProps {
@@ -20,6 +20,14 @@ const projectData: ProjectProps[] = [
     description: "Site-ception! You are here, this is ccioan.ca!",
     image: "/images/test.jpg",
     tags: ["React", "Node.js", "Typescript", "Tailwind CSS", "HTML", "CSS"],
+    githubLink: "https://github.com/ccioanca/Blueprints"
+  },
+  {
+    title: "Tankathon",
+    description: "A description.",
+    image: "/images/test.jpg",
+    tags: ["C#", "GDScript", "Godot"],
+    githubLink: "https://github.com/your-username/ecommerce-platform",
   },
   {
     title: "Open Dungeon",
@@ -74,8 +82,8 @@ const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, tags, 
           </Button>
         ) : 
         (
-            <Badge className="bg-amber-500">
-              Private Project
+            <Badge className="bg-amber-500 py-3">
+              <LockIcon/> Private Repository
             </Badge>
         )}
         {/* {liveLink && (
@@ -96,7 +104,7 @@ const Projects = () => {
       <div className='section'>
         <h2 className="text-4xl font-bold text-center mb-12">My Projects</h2>
         <p className="mb-16">
-          As a developer raised right, this is a small collection of started projects that I don't have the time to dedicate to. Here's an insight into some of my currently ongoing projects
+          As a developer raised right, this is a small collection of started projects that I don't have the time to dedicate to. Here's a peek into some of my currently ongoing projects that exist outside of my professional experience. 
         </p>
       </div>
       <div className="section-wide">
