@@ -179,6 +179,10 @@
     h1,h2,h3,h4,h5,h6 {
         @apply font-sans-title;
     }
+
+    [data-description] { /*Shouldn't need this - it's an issue with the theme provider - find out what var Sonner is using*/
+        /* color: var(--popover-foreground) !important; */
+    }
 }
 
 @layer components {
