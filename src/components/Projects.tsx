@@ -7,7 +7,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 
 interface ProjectProps {
   title: string;
-  description: string;
+  description: React.ReactElement;
   image: string;
   tags: string[];
   githubLink?: string;
@@ -17,43 +17,44 @@ interface ProjectProps {
 const projectData: ProjectProps[] = [
   {
     title: "ccioan.ca",
-    description: "Site-ception! You are here, this is ccioan.ca!",
+    description: <span>Site-ception! You are here, this is <a href='#' className='underline'><b>ccioan.ca</b></a>! This is my personal website, built with modern tools, and a sprinkle of magic. Feel free to explore and check out the code on GitHub! There's not much to say in this description that you can't see for yourself by scrolling!</span>,
     image: "/images/ccioanca.png",
     tags: ["React", "Node.js", "Typescript", "Tailwind CSS", "HTML", "CSS"],
     githubLink: "https://github.com/ccioanca/Blueprints"
   },
   {
     title: "Tankathon",
-    description: "A description.",
+    description: <span>A Tankathon is a hackathon I threw together for teams of developers to write an atonomous tank brain that would end up battling other autonomous tanks in the arena! <i>(Winner took home some 3D printed trophies!)</i> The aim was for the event to be a digital version of Battle Bots. The repository is public, and anyone is free to pick it apart or use it for their own fun projects! This is the second iteration, and I have a few ideas for even more chaos in v3!</span>,
     image: "/images/tankathon.png",
     tags: ["C#", "GDScript", "Godot"],
-    githubLink: "https://github.com/your-username/ecommerce-platform",
+    githubLink: "https://github.com/ccioanca/Tankathon-v2",
   },
   {
     title: "Open Dungeon",
-    description: "A description.",
-    image: "/images/test.jpg",
+    description: <span>Open Dungeon aims to be a completely Free, open-source, and community-driven tabletop roleplaying system that employs modularity as a driving principle of the engine. This project is an exercise in DevOps & management as contributing to the project is dead simple, but managing <b>what</b> and <b>how</b> contributions are merged and managed is a challenge. There is also a privately developed companion application to make the compilation of the system simple.</span>,
+    image: "/images/OD.png",
     tags: ["Markdown", "HTML", "CSS", "JavaScript"],
-    githubLink: "https://github.com/your-username/ecommerce-platform",
+    githubLink: "https://github.com/ccioanca/OpenDungeon",
   },
   {
-    title: "Open Dungeon Compiler",
-    description: "A description.",
-    image: "/images/test.jpg",
+    title: "Open Dungeon Compiler (CODeX)",
+    description: <span>Compiler for Open Dungeon Edition X (or CODeX) is a companion application to the TTRPG system Open Dungeon. This application is meant to allow for a simple interface to compile the rulesets and modules (and versions) into consumable PDFs for players and GMs. This project is currently private as I work on the core features, but the plan is to open source it once it's ready for the spotlight.</span>,
+    image: "/images/CODeX.png",
     tags: [".NET", "C#", "SQL", "React", "HTML", "CSS", "JavaScript"],
   },
   {
-    title: "Monster Battler",
-    description: "A description.",
-    image: "/images/mon.png",
+    title: "Dungeon n' Display",
+    description: <span>This application is a tool I developed to display TTRPG maps and assets to my players during play. The tool handles the idea of 'Regions', 'Maps', and 'Floors'. It handles autonomous time-of-day tracking and map lighting and animated assets like light-sources and water. The tool is even fully capable of handling weather effects such as cloud coverage, rain (and lightning!), snow, and fog. It is built to allow quick additions of new maps and assets. Currently it is a private project as it relies on the Godot engine to set up the maps but I plan on externalizing those features eventually so that the tool can be used by anyone.</span>,
+    image: "/images/GDNDisplay.png",
     tags: ["GDScript"],
   },
   {
-    title: "Dungeon Map Display",
-    description: "A description.",
-    image: "/images/GDNDisplay.png",
+    title: "Monster Battler",
+    description: <span>This project is a dream. It's an idea I've been toying around for a few years now, and even created (and recreated) many disperate systems and prototypes. It is a nostalgic calling card to the games I grew up with and always thought could be <i>more</i>. It aims to be an in-depth monster battler that leans into the tactics strategy game-style. Simply clicking the strongest move is not the answer, as positioning and movement, coverage and strategy are keys to success just as much as leveling is.</span>,
+    image: "/images/mon.png",
     tags: ["GDScript"],
-  }
+  },
+  
 ];
 
 const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, tags, githubLink, liveLink }) => {
@@ -73,7 +74,7 @@ const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, tags, 
       <CardContent className="flex">
        {description}
       </CardContent>
-      <CardFooter className="flex justify-start gap-4 p-6 pt-4">
+      <CardFooter className="flex justify-start gap-4 p-6 pt-4 mt-auto">
         {githubLink ? (
           <Button asChild variant="secondary" className="flex items-center gap-2 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600">
             <a href={githubLink} target="_blank" rel="noopener noreferrer">
@@ -82,7 +83,7 @@ const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, tags, 
           </Button>
         ) : 
         (
-            <Badge className="bg-amber-500 py-3">
+            <Badge className="bg-amber-500 py-3 my-2">
               <LockIcon/> Private Repository
             </Badge>
         )}
@@ -116,8 +117,8 @@ const Projects = () => {
             }}>
             <CarouselContent>
               {projectData.map((project, index) => (
-                <CarouselItem key={index} className='lg:basis-1/2'>
-                <ProjectCard key={index} {...project} />
+                <CarouselItem key={index} className='lg:basis-1/2 select-none'>
+                    <ProjectCard key={index} {...project} />
                 </CarouselItem>
 
               ))}
