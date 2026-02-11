@@ -18,14 +18,14 @@ const projectData: ProjectProps[] = [
   {
     title: "ccioan.ca",
     description: "Site-ception! You are here, this is ccioan.ca!",
-    image: "/images/test.jpg",
+    image: "/images/ccioanca.png",
     tags: ["React", "Node.js", "Typescript", "Tailwind CSS", "HTML", "CSS"],
     githubLink: "https://github.com/ccioanca/Blueprints"
   },
   {
     title: "Tankathon",
     description: "A description.",
-    image: "/images/test.jpg",
+    image: "/images/tankathon.png",
     tags: ["C#", "GDScript", "Godot"],
     githubLink: "https://github.com/your-username/ecommerce-platform",
   },
@@ -45,13 +45,13 @@ const projectData: ProjectProps[] = [
   {
     title: "Monster Battler",
     description: "A description.",
-    image: "/images/test.jpg",
+    image: "/images/mon.png",
     tags: ["GDScript"],
   },
   {
     title: "Dungeon Map Display",
     description: "A description.",
-    image: "/images/test.jpg",
+    image: "/images/GDNDisplay.png",
     tags: ["GDScript"],
   }
 ];
@@ -59,7 +59,7 @@ const projectData: ProjectProps[] = [
 const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, tags, githubLink, liveLink }) => {
   return (
     <Card className="flex flex-col h-full overflow-hidden bg-card shadow-sm hover:shadow-xl transition-shadow duration-300 shadow-white">
-      <img src={image} alt={title} className="w-full h-48 object-cover" />
+      <img src={image} alt={title} className="w-full h-0 lg:h-80 object-cover" />
       <CardHeader>
         <CardTitle className="text-2xl font-bold">{title}</CardTitle>
         <CardDescription className="mt-2 flex flex-wrap gap-2">
