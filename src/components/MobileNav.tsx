@@ -28,7 +28,7 @@ const MobileNav = ({ navItems, isOpen, onClose }: MobileNavProps) => {
       </div>
       <nav className="flex flex-col items-center justify-center h-full space-y-8">
         {navItems.map((item, index) => (
-          <a href={item.href} className="text-3xl font-bold my-12" onClick={onClose}>
+          <a key={index} href={item.href} className="text-3xl font-bold my-12" onClick={onClose}>
             {item.label}
           </a>
         ))}
