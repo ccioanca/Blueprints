@@ -32,7 +32,7 @@ const items = [
   {
     value: "item-2",
     trigger: "Technical Management",
-    tagColor: "bg-chart-5",
+    tagColor: "bg-chart-3",
     tags: [
       "CI/CD Management",
       "Architecture Review", 
@@ -94,7 +94,7 @@ const Competencies = () => {
             <AccordionContent>
               <div className="mb-5">
                 {item.tags?.map((tag) => (
-                  <Badge key={tag} className={item.tagColor + " mr-2 mb-2"}>
+                  <Badge key={tag} className={item.tagColor + " mr-2 mb-2 text-white"}>
                     {tag}
                   </Badge>
                 ))}
