@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { DownloadIcon, GithubIcon, LinkedinIcon, MailIcon, PhoneCallIcon } from 'lucide-react';
 import { toast } from 'sonner';
+import { error } from 'node:console';
 
 
 const Contact = () => {
@@ -23,14 +24,56 @@ const Contact = () => {
     }));
   };
 
+  const submitEmail = async (name: string, email: string, message: string) => {
+    const postData = { 
+      service_id: 'default_service',
+      template_id: 'template_uxddklb',
+      user_id: 'XlQYoblOIcOPjpdFq',
+      template_params: {
+        'name': name,
+        'email': email,
+        'message': message
+      }
+     }; // Data to be sent
+
+    try {
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST', // Specify the method
+        headers: {
+          'Content-Type': 'application/json', // Indicate content type
+        },
+        body: JSON.stringify(postData), // Convert data to a JSON string
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json(); // Parse the JSON response
+      // setResponseMessage(`Success! New post ID: ${data.id}`);
+    } catch (error) {
+      console.error('Error during POST request:', error);
+      // setResponseMessage('Error: Post failed');
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
 
     toast.promise(
       () => new Promise<{description: string}>((resolve, reject) =>
-        setTimeout(() => resolve({ description: "I'll get back to you shortly!" }), 1000)
-        // setTimeout(() => error({ description: "Error submitting form. Try again shortly." }), 1000)
+        submitEmail(formData.name, formData.email, formData.message).then(() => {
+          resolve({ description: "I'll get back to you shortly!" });
+        }, (err) => {
+          reject({ description: "Error submitting form. Try again shortly." });
+        }).finally(() => {
+          setFormData({
+            name: "",
+            email: "",
+            message: "",
+          });
+        })
       ),
       {
         loading: "Loading...",
@@ -42,11 +85,6 @@ const Contact = () => {
         position: 'top-center'
       }
     )
-    // setFormData({
-    //   name: "",
-    //   email: "",
-    //   message: "",
-    // });
   };
 
 
