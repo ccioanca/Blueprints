@@ -85,7 +85,7 @@ const Competencies = () => {
       <Accordion type="single" collapsible={true} className="rounded-lg border bg-card">
         {items.map((item) => (
           <AccordionItem key={item.value} value={item.value} className="border-b px-4 last:border-b-0">
-            <AccordionTrigger className="cursor-pointer text-lg flex-col md:flex-row">
+            <AccordionTrigger className="cursor-pointer text-lg">
               <div className="mr-3">
                 {item.trigger}
               </div>

@@ -1,12 +1,12 @@
 import { Button } from '@/components/ui/button';
-import Typewriter from '@/components/typewriter';
+import Typewriter from '@/components/Typewriter';
+import { CircleChevronDownIcon } from 'lucide-react';
 
 const Hero = () => {
   return (
     <section 
       id="hero" 
-      className="h-screen flex items-center justify-center "
-    >
+      className="h-screen flex relative items-center justify-center ">
       <div className="relative z-10 text-center px-4">
         <h1 className="mb-4 tracking-wide text-shadow-lg text-shadow-primary/20 dark:text-shadow-sm">
           Hi, I'm <span className="text-primary dark:primary">Cristian</span>
@@ -43,6 +43,7 @@ const Hero = () => {
         </div>
         
       </div>
+      {/* <CircleChevronDownIcon className="size-10 text-primary/30 dark:text-primary/15 absolute bottom-8 animate-soft-bounce" /> */}
     </section>
   );
 };
