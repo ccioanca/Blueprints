@@ -24,7 +24,7 @@ const projectData: ProjectProps[] = [
   },
   {
     title: "Tankathon",
-    description: <span>A Tankathon is a hackathon I threw together for teams of developers to write an atonomous tank brain that would end up battling other autonomous tanks in the arena! <i>(Winner took home some 3D printed trophies!)</i> The aim was for the event to be a digital version of Battle Bots. The repository is public, and anyone is free to pick it apart or use it for their own fun projects! This is the second iteration, and I have a few ideas for even more chaos in v3!</span>,
+    description: <span>A Tankathon is a hackathon I threw together for teams of developers to write an atonomous tank brain that would end up battling other autonomous tanks in the arena! <i>(Winner took home some 3D printed trophies!)</i> The aim was for the event to be a digital version of Battle Bots. The repository is public, and anyone is free to pick it apart or use it for their own fun projects! The project is  written in GDScript and the Tank API and brains are written in C#</span>,
     image: "/images/tankathon.png",
     tags: ["C#", "GDScript", "Godot"],
     githubLink: "https://github.com/ccioanca/Tankathon-v2",
@@ -59,7 +59,7 @@ const projectData: ProjectProps[] = [
 
 const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, tags, githubLink, liveLink }) => {
   return (
-    <Card className="flex flex-col h-full overflow-hidden bg-card">
+    <Card className="flex flex-col h-full overflow-hidden dark:bg-card">
       <img src={image} alt={title} className="w-full h-0 lg:h-80 object-cover" />
       <CardHeader>
         <CardTitle className="text-2xl font-bold">{title}</CardTitle>
@@ -76,9 +76,9 @@ const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, tags, 
       </CardContent>
       <CardFooter className="flex justify-start gap-4 p-6 pt-4 mt-auto">
         {githubLink ? (
-          <Button asChild variant="secondary" className="flex items-center gap-2 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600">
+          <Button asChild variant="outline" className="flex items-center gap-2">
             <a href={githubLink} target="_blank" rel="noopener noreferrer">
-              <GithubIcon className="h-4 w-4" /> GitHub <ExternalLinkIcon className="h-3 w-3" />
+              <GithubIcon className="size-4" /> GitHub <ExternalLinkIcon className="size-4" />
             </a>
           </Button>
         ) : 

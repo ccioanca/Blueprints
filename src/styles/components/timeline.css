@@ -44,7 +44,7 @@
 .date {
     span {
         font-size: 0.75rem;
-        color: #aaa;
+        color: var(--color-muted-foreground);
 
         &:first-child {
             &:after {

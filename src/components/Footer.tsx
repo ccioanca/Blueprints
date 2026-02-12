@@ -1,7 +1,7 @@
 
 const Footer = () =>{
     return(
-        <footer className="w-full text-muted-foreground px-16 py-8 bg-gray-100 dark:bg-black">
+        <footer className="w-full text-muted-foreground px-16 py-8 dark:bg-black">
             <div className="flex place-content-between mb-3 flex-col sm:flex-row">
                 <b>Cristian C.</b>
                 <div className="flex align-middle">

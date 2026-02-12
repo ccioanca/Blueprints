@@ -15,14 +15,12 @@ interface MobileNavProps {
 const MobileNav = ({ navItems, isOpen, onClose }: MobileNavProps) => {
   return (
     <div
-      className={`fixed inset-0 z-50 bg-white/95 dark:bg-gray-950/75 backdrop-blur-md transform transition-transform duration-300 ease-in-out
-        ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
-    >
+      className={`fixed inset-0 z-50 bg-white/55 dark:bg-gray-950/65 backdrop-blur-sm transform transition-transform duration-300 ease-in-out
+        ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
       <div className="flex justify-start p-4">
         <button
           onClick={onClose}
-          aria-label="Close mobile menu"
-        >
+          aria-label="Close mobile menu">
           <XIcon className="h-6 w-6" />
         </button>
       </div>

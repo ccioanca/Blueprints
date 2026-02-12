@@ -17,7 +17,7 @@ const TimelineItem = (
                     <span>{props.dateEnd}</span>
                 </div>
                 <div className="header">
-                    <div className="title text-shadow-md text-shadow-primary/50">{props.title}</div>
+                    <div className="title text-shadow-md text-shadow-primary/30 dark:text-shadow-primary/40">{props.title}</div>
                     <div className="sub-title">{props.company}</div>
                 </div>
                 {props.data && (

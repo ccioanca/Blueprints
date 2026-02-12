@@ -8,7 +8,7 @@ const Hero = () => {
       className="h-screen flex items-center justify-center "
     >
       <div className="relative z-10 text-center px-4">
-        <h1 className="mb-4 tracking-wide drop-shadow-md">
+        <h1 className="mb-4 tracking-wide text-shadow-lg text-shadow-primary/20 dark:text-shadow-sm">
           Hi, I'm <span className="text-primary dark:primary">Cristian</span>
         </h1>
         <div className="pb-12 text-2xl sm:text-3xl font-mono text-gray-700 dark:text-gray-300 drop-shadow-sm h-20 flex items-center justify-center"> {/* Added h-20 and flex for consistent height */}

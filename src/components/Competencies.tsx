@@ -11,6 +11,7 @@ const items = [
   {
     value: "item-1",
     trigger: "Strategic Leadership",
+    tagColor: "bg-chart-2",
     tags: [
       "Recruitment",
       "Budgeting",
@@ -31,6 +32,7 @@ const items = [
   {
     value: "item-2",
     trigger: "Technical Management",
+    tagColor: "bg-chart-5",
     tags: [
       "CI/CD Management",
       "Architecture Review", 
@@ -51,6 +53,7 @@ const items = [
   {
     value: "item-3",
     trigger: "Technical & Development Skills",
+    tagColor: "bg-chart-4",
     tags: [
       ".NET Core",
       "C#",
@@ -91,7 +94,7 @@ const Competencies = () => {
             <AccordionContent>
               <div className="mb-5">
                 {item.tags?.map((tag) => (
-                  <Badge key={tag} className="bg-chart-2 mr-2 mb-2">
+                  <Badge key={tag} className={item.tagColor + " mr-2 mb-2"}>
                     {tag}
                   </Badge>
                 ))}
