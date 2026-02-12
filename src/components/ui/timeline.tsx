@@ -3,7 +3,7 @@ type TimelineProps = {
     dateEnd: string,
     title: string,
     company: string, 
-    data: React.ReactElement[]
+    data?: React.ReactElement[]
 }
 
 const TimelineItem = (
@@ -20,11 +20,13 @@ const TimelineItem = (
                     <div className="title text-shadow-md text-shadow-primary/50">{props.title}</div>
                     <div className="sub-title">{props.company}</div>
                 </div>
-                <ul className="list-inside">
-                    {props.data.map((item, index) => (
-                        <li key={index} className="list-disc mb-2">{item}</li>
-                    ))}
-                </ul>
+                {props.data && (
+                    <ul className="list-inside">
+                        {props.data?.map((item, index) => (
+                            <li key={index} className="list-disc mb-2">{item}</li>
+                        ))}
+                    </ul>
+                )}
             </div>
         </li>
     )
@@ -42,11 +44,11 @@ const Timeline = () => {
                     title="Lead Software Developer"
                     company="GoodLife Fitness"
                     data={[
-                        <span><b>Orchestrate two high-impact cross-functional teams</b> comprising Senior/Intermediate Developers and QA; manage a distributed team of remote developers from coast to coast in Canada.</span>,
-                        <span>Implemented concrete software delivery & deployment standards that increased sprint goal completion to over 90%, directly resulting in significantly higher Product Owner satisfaction through predictable delivery.</span>,
-                        <span>Established a delivery & release framework that increased deployment visibility and transparency. The new framework accelerated the team's time-to-market by nearly 20% while significantly reducing post-deployment incidents.</span>,
-                        <span>Lead rigorous architecture proposal reviews, ensuring scalable system design while proactively reducing the development of technical debt.</span>,
-                        <span>Designed and implemented custom coding challenges and technical interview rubrics; mentored direct reports in the recruitment process to elevate internal skillsets.</span>
+                        <span><b>Orchestrate two high-impact cross-functional teams</b> comprising Senior/Intermediate Developers and QA; manage a distributed team of remote developers from <b>coast to coast in Canada.</b></span>,
+                        <span>Implemented concrete software delivery & deployment standards that <b>increased sprint goal completion to over 90%</b>, directly resulting in significantly higher Product Owner satisfaction through predictable delivery.</span>,
+                        <span>Established a delivery & release framework that <b>increased deployment visibility and transparency</b>. The new framework accelerated the team's time-to-market while <b>significantly reducing post-deployment incidents.</b></span>,
+                        <span><b>Lead rigorous architecture proposal reviews</b>, ensuring scalable system design while proactively reducing the development of technical debt.</span>,
+                        <span>Designed and implemented custom coding challenges and technical interview rubrics; <b>mentored direct reports in the recruitment process</b> to elevate internal skillsets.</span>
                     ]}
                 />
 
@@ -56,7 +58,11 @@ const Timeline = () => {
                     title="Senior Full-Stack Developer"
                     company="GoodLife Fitness"
                     data={[
-                        <span><b>Orchestrate two high-impact cross-functional teams</b> comprising Senior/Intermediate Developers and QA; manage a distributed team of remote developers from coast to coast in Canada.</span>
+                        <span>Acted as a <b>bridge between Architecture, Infrastructure, and Security</b> teams to <b>align application roadmaps</b> with enterprise standards.</span>,
+                        <span>Served as an <b>advisor and coach to junior developers</b>, leveraging strong diplomacy and communication skills to foster a high-energy, positive team culture focused on technical excellence.</span>,
+                        <span><b>Conducted comprehensive peer reviews and architecture evaluations</b> to ensure code extensibility, reusability, and strict adherence to reference architectures.</span>,
+                        <span>Identified and implemented process improvements to drive <b>iterative change</b>, gathering complex business requirements to produce high-level system design documentation.</span>,
+                        <span>Managed the <b>development, deployment, and performance tuning</b> of .NET components while collaborating with QA Specialists to resolve mission-critical system issues.</span>
                     ]}
                 />
 
@@ -66,7 +72,8 @@ const Timeline = () => {
                     title="Full-Stack Developer"
                     company="GoodLife Fitness"
                     data={[
-                        <span><b>Orchestrate two high-impact cross-functional teams</b> comprising Senior/Intermediate Developers and QA; manage a distributed team of remote developers from coast to coast in Canada.</span>
+                        <span>Engineered <b>enterprise-grade web services and APIs</b>, owning the lifecycle from requirement definition through to national deployment and operation on Microsoft Azure.</span>,
+                        <span>Designed <b>high-performance services</b> to support comprehensive web/mobile requirements.</span>
                     ]}
                 />
 
@@ -76,7 +83,8 @@ const Timeline = () => {
                     title="Web Developer"
                     company="GoodLife Fitness"
                     data={[
-                        <span><b>Orchestrate two high-impact cross-functional teams</b> comprising Senior/Intermediate Developers and QA; manage a distributed team of remote developers from coast to coast in Canada.</span>
+                        <span><b>Led the fusion of UI/UX design with front-end and back-end technology</b>, resulting in optimal usability across mission-critical web applications.</span>,
+                        <span>Facilitated Agile ceremonies and authored technical specifications for enterprise-wide properties.</span>
                     ]}
                 />
 
@@ -85,9 +93,6 @@ const Timeline = () => {
                     dateEnd="April 2017"
                     title="Junior C# Programmer"
                     company="CarProof"
-                    data={[
-                        <span><b>Orchestrate two high-impact cross-functional teams</b> comprising Senior/Intermediate Developers and QA; manage a distributed team of remote developers from coast to coast in Canada.</span>
-                    ]}
                 />
 
                 <TimelineItem
@@ -95,9 +100,6 @@ const Timeline = () => {
                     dateEnd="August 2015"
                     title="IT Support"
                     company="Ivey Spencer Leadership Centre"
-                    data={[
-                        <span><b>Orchestrate two high-impact cross-functional teams</b> comprising Senior/Intermediate Developers and QA; manage a distributed team of remote developers from coast to coast in Canada.</span>
-                    ]}
                 />
                 
             </ul>
