@@ -90,7 +90,7 @@ const Competencies = () => {
                 {item.trigger}
               </div>
               
-              </AccordionTrigger>
+            </AccordionTrigger>
             <AccordionContent>
               <div className="mb-5">
                 {item.tags?.map((tag) => (

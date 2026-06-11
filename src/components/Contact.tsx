@@ -6,7 +6,6 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { DownloadIcon, GithubIcon, LinkedinIcon, MailIcon, PhoneCallIcon } from 'lucide-react';
 import { toast } from 'sonner';
-import { error } from 'node:console';
 
 
 const Contact = () => {
@@ -187,7 +186,7 @@ const Contact = () => {
             <p className='text-center mb-4'>And grab a copy of my resume while you're here</p>
             <div className='flex justify-center'>
               <Button className='mx-auto' asChild>
-                <a href='/public/assets/Resume Cristian cioanca.pdf' download={"Resume-Cristian.pdf"}>
+                <a href='/assets/Resume Cristian cioanca.pdf' download={"Resume-Cristian.pdf"}>
                   <DownloadIcon /> My Resume
                 </a>
               </Button>
