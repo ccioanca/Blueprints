@@ -2,6 +2,7 @@ type TimelineProps = {
     dateStart: string,
     dateEnd: string,
     title: string,
+    subtitle?: string,
     company: string, 
     data?: React.ReactElement[]
 }
@@ -17,7 +18,15 @@ const TimelineItem = (
                     <span>{props.dateEnd}</span>
                 </div>
                 <div className="header">
-                    <div className="title text-shadow-md text-shadow-primary/30 dark:text-shadow-primary/40">{props.title}</div>
+                    <div className="title">
+                        <span className="font-bold uppercase text-shadow-md text-shadow-primary/30 dark:text-shadow-primary/40">{props.title}</span>
+                        {props.subtitle?
+                            <span className="text-shadow-md text-shadow-primary/30 dark:text-shadow-primary/40">&nbsp;{props.subtitle}</span>
+                            :
+                            <></>
+                        }
+                        
+                    </div>
                     <div className="sub-title">{props.company}</div>
                 </div>
                 {props.data && (
@@ -41,7 +50,8 @@ const Timeline = () => {
                 <TimelineItem
                     dateStart="September 2023"
                     dateEnd="Present"
-                    title="Lead Software Developer (Acting as Engineering Manager)"
+                    title="Lead Software Developer"
+                    subtitle="(Acting Engineering Manager)"
                     company="GoodLife Fitness"
                     data={[
                         <span><b>Orchestrate two high-impact cross-functional teams</b> comprising Senior/Intermediate Developers and QA; manage a distributed team of remote developers from <b>coast to coast in Canada.</b></span>,

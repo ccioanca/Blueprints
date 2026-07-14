@@ -104,9 +104,8 @@
         }
 
         .title {
-            text-transform: uppercase;
-            font-weight: bold;
             padding-right: 1em;
+            word-wrap: pretty;
         }
 
         
