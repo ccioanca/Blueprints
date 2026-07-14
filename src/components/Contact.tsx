@@ -186,7 +186,7 @@ const Contact = () => {
             <p className='text-center mb-4'>And grab a copy of my resume while you're here</p>
             <div className='flex justify-center'>
               <Button className='mx-auto' asChild>
-                <a href='/assets/Resume Cristian cioanca.pdf' download={"Resume-Cristian.pdf"}>
+                <a href='/assets/Cristian Cioanca Resume.pdf' download={"Cristian Cioanca Resume.pdf"}>
                   <DownloadIcon /> My Resume
                 </a>
               </Button>
