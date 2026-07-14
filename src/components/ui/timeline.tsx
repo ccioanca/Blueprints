@@ -41,7 +41,7 @@ const Timeline = () => {
                 <TimelineItem
                     dateStart="September 2023"
                     dateEnd="Present"
-                    title="Lead Software Developer"
+                    title="Lead Software Developer (Acting as Engineering Manager)"
                     company="GoodLife Fitness"
                     data={[
                         <span><b>Orchestrate two high-impact cross-functional teams</b> comprising Senior/Intermediate Developers and QA; manage a distributed team of remote developers from <b>coast to coast in Canada.</b></span>,
