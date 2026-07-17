@@ -1,17 +1,29 @@
 import { Button } from '@/components/ui/button';
 import Typewriter from '@/components/Typewriter';
-import { CircleChevronDownIcon } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
     <section 
       id="hero" 
       className="h-screen flex relative items-center justify-center ">
-      <div className="relative z-10 text-center px-4">
-        <h1 className="mb-4 tracking-wide text-shadow-lg text-shadow-primary/20 dark:text-shadow-sm">
+      <motion.div
+        className="relative z-10 text-center px-4"
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}>
+        <motion.h1
+          className="mb-4 tracking-wide text-shadow-lg text-shadow-primary/20 dark:text-shadow-sm"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.5, ease: 'easeOut' }}>
           Hi, I'm <span className="text-primary dark:primary">Cristian</span>
-        </h1>
-        <div className="pb-12 text-2xl sm:text-3xl font-mono text-gray-700 dark:text-gray-300 drop-shadow-sm h-20 flex items-center justify-center"> {/* Added h-20 and flex for consistent height */}
+        </motion.h1>
+        <motion.div
+          className="pb-12 text-2xl sm:text-3xl font-mono text-gray-700 dark:text-gray-300 drop-shadow-sm h-20 flex items-center justify-center"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.5, ease: 'easeOut' }}>
           <Typewriter 
             typeData={[
               "an Engineering Manager",
@@ -22,9 +34,13 @@ const Hero = () => {
             typeTime={2500}
             staticText={"I'm\u00A0"}
           />
-        </div>
+        </motion.div>
         
-        <div className='flex flex-col md:flex-row'>
+        <motion.div
+          className='flex flex-col md:flex-row'
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.35, duration: 0.5, ease: 'easeOut' }}>
           <Button 
           size="xl" 
           variant="default"
@@ -40,10 +56,9 @@ const Hero = () => {
           asChild>
           <a href="#projects">View My Work</a>
         </Button>
-        </div>
+        </motion.div>
         
-      </div>
-      {/* <CircleChevronDownIcon className="size-10 text-primary/30 dark:text-primary/15 absolute bottom-8 animate-soft-bounce" /> */}
+      </motion.div>
     </section>
   );
 };
