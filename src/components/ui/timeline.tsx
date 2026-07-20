@@ -1,3 +1,6 @@
+import { motion } from "framer-motion"
+import { RevealOnScrollDirection } from "../ux/motion/StaggerGroup"
+
 type TimelineProps = {
     dateStart: string,
     dateEnd: string,
@@ -12,31 +15,33 @@ const TimelineItem = (
 ) => {
     return (
         <li className="box my-6">
-            <div className="info">
-                <div className="date">
-                    <span>{props.dateStart}</span>
-                    <span>{props.dateEnd}</span>
-                </div>
-                <div className="header">
-                    <div className="title">
-                        <span className="font-bold uppercase text-shadow-md text-shadow-primary/30 dark:text-shadow-primary/40">{props.title}</span>
-                        {props.subtitle?
-                            <span className="text-shadow-md text-shadow-primary/30 dark:text-shadow-primary/40">&nbsp;{props.subtitle}</span>
-                            :
-                            <></>
-                        }
-                        
+            <RevealOnScrollDirection>
+                <div className="info">
+                    <div className="date">
+                        <span>{props.dateStart}</span>
+                        <span>{props.dateEnd}</span>
                     </div>
-                    <div className="sub-title">{props.company}</div>
+                    <div className="header">
+                        <div className="title">
+                            <span className="font-bold uppercase text-shadow-md text-shadow-primary/30 dark:text-shadow-primary/40">{props.title}</span>
+                            {props.subtitle?
+                                <span className="text-shadow-md text-shadow-primary/30 dark:text-shadow-primary/40">&nbsp;{props.subtitle}</span>
+                                :
+                                <></>
+                            }
+                            
+                        </div>
+                        <div className="sub-title">{props.company}</div>
+                    </div>
+                    {props.data && (
+                        <ul className="list-inside">
+                            {props.data?.map((item, index) => (
+                                <li key={index} className="list-disc mb-2">{item}</li>
+                            ))}
+                        </ul>
+                    )}
                 </div>
-                {props.data && (
-                    <ul className="list-inside">
-                        {props.data?.map((item, index) => (
-                            <li key={index} className="list-disc mb-2">{item}</li>
-                        ))}
-                    </ul>
-                )}
-            </div>
+            </RevealOnScrollDirection>
         </li>
     )
 }
