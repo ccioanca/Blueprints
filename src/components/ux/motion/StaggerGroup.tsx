@@ -10,9 +10,23 @@ export function StaggerGroup({ children, className }: { children: ReactNode; cla
     );
 }
 
-export function StaggerItem({ children, className }: { children: ReactNode; className?: string }) {
+export function StaggerItem({ children, className, customDelay }: { children: ReactNode; className?: string; customDelay?: number; }) {
+    const [hasAnimatedState, setHasAnimated] = useState(false);
+
+
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 25 },
+        visible: ({ customDelay = 0 }: { customDelay?: number; }) => ({
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.7, delay: !hasAnimatedState ? (customDelay ?? 0) * 0.2 : 0 }, // Multiply position by seconds
+        }),
+        expanded: { opacity: 1, scale: 1.1 }
+    };
+
     return (
-        <motion.div className={className} variants={revealUp} transition={{ duration: motionTiming.base, ease: easeOut }}>
+        <motion.div className={className} variants={itemVariants} initial="hidden" whileInView={"visible"} onViewportEnter={() => setHasAnimated(true)} custom={{ customDelay }}>
             {children}
         </motion.div>
     );

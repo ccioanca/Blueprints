@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from '@/components/ui/button';
 import { ExternalLinkIcon, GithubIcon, LockIcon } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
+import { RevealOnScrollDirection, StaggerGroup, StaggerItem } from './ux/motion/StaggerGroup';
 
 interface ProjectProps {
   title: string;
@@ -11,7 +12,7 @@ interface ProjectProps {
   image: string;
   tags: string[];
   githubLink?: string;
-  liveLink?: string;
+  pos?: number;
 }
 
 const projectData: ProjectProps[] = [
@@ -57,38 +58,41 @@ const projectData: ProjectProps[] = [
   
 ];
 
-const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, tags, githubLink, liveLink }) => {
+const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, tags, githubLink, pos }) => {
   return (
-    <Card className="flex flex-col h-full overflow-hidden dark:bg-card">
-      <img src={image} alt={title} className="w-full h-0 lg:h-80 object-cover" />
-      <CardHeader>
-        <CardTitle className="text-2xl font-bold">{title}</CardTitle>
-        <CardDescription className="mt-2 flex flex-wrap gap-2">
-          {tags.map((tag) => (  
-            <Badge key={tag} className="bg-chart-4">
-              {tag}
-            </Badge>
-          ))}
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="flex">
-       {description}
-      </CardContent>
-      <CardFooter className="flex justify-start gap-4 p-6 pt-4 mt-auto">
-        {githubLink ? (
-          <Button asChild variant="outline" className="flex items-center gap-2">
-            <a href={githubLink} target="_blank" rel="noopener noreferrer">
-              <GithubIcon className="size-4" /> GitHub <ExternalLinkIcon className="size-4" />
-            </a>
-          </Button>
-        ) : 
-        (
-            <Badge className="bg-amber-500 py-3 my-2">
-              <LockIcon/> Private Repository
-            </Badge>
-        )}
-      </CardFooter>
-    </Card>
+    <StaggerItem className="flex flex-col h-full" customDelay={pos ?? 0}>
+      <Card className="flex flex-col h-full overflow-hidden dark:bg-card">
+        <img src={image} alt={title} className="w-full h-0 lg:h-80 object-cover" />
+        <CardHeader>
+          <CardTitle className="text-2xl font-bold">{title}</CardTitle>
+          <CardDescription className="mt-2 flex flex-wrap gap-2">
+            {tags.map((tag) => (  
+              <Badge key={tag} className="bg-chart-4">
+                {tag}
+              </Badge>
+            ))}
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="flex">
+        {description}
+        </CardContent>
+        <CardFooter className="flex justify-start gap-4 p-6 pt-4 mt-auto">
+          {githubLink ? (
+            <Button asChild variant="outline" className="flex items-center gap-2">
+              <a href={githubLink} target="_blank" rel="noopener noreferrer">
+                <GithubIcon className="size-4" /> GitHub <ExternalLinkIcon className="size-4" />
+              </a>
+            </Button>
+          ) : 
+          (
+              <Badge className="bg-amber-500 py-3 my-2">
+                <LockIcon/> Private Repository
+              </Badge>
+          )}
+        </CardFooter>
+      </Card>
+    </StaggerItem>
+    
   );
 };
 
@@ -109,12 +113,16 @@ const Projects = () => {
               loop: true,
             }}>
             <CarouselContent className='py-2'>
-              {projectData.map((project, index) => (
-                <CarouselItem key={index} className='lg:basis-1/2 select-none'>
-                    <ProjectCard key={index} {...project} />
-                </CarouselItem>
+              {projectData.map((project, index) => {
+                // we want to add animation delays to the first, second, and last items in the carousel.
+                // first item shows first (0), second item shows second (1), last item shows third (2), all other items show with no delay (undefined) as they never show. 
+                const showPos = index === 0 ? 0 : index === 1 ? 1 : index === projectData.length - 1 ? 2 : undefined;
 
-              ))}
+                return(
+                <CarouselItem key={index} className='lg:basis-1/2 select-none'>
+                  <ProjectCard key={index} pos={showPos} {...project} />
+                </CarouselItem>)
+              })}
             </CarouselContent>
             <CarouselPrevious />
             <CarouselNext />
