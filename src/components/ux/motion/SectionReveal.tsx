@@ -5,12 +5,14 @@ import type { ReactNode } from "react";
 type Props = {
     children: ReactNode;
     className?: string;
+    id?: string;
     once?: boolean;
 };
 
-export function SectionReveal({ children, className, once = true }: Props) {
+export function SectionReveal({ children, className, id, once = true }: Props) {
     return (
         <motion.section
+            id={id}
             className={className}
             variants={revealUp}
             initial="hidden"
