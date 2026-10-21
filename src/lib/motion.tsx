@@ -1,4 +1,13 @@
-import type { Variants, Transition } from "framer-motion";
+import type { Variants, Transition, ViewportOptions } from "framer-motion";
+import { createContext } from "react";
+
+type RevealContextType = {
+  mode: "standalone" | "inherit";   // who drives trigger/stagger
+  viewport?: ViewportOptions;
+  // future: delay, transition, etc.
+};
+
+export const RevealContext = createContext<RevealContextType>({ mode: "standalone" });
 
 export const motionTiming = {
   fast: 0.25,
