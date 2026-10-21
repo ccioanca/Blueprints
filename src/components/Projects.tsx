@@ -116,7 +116,7 @@ const Projects = () => {
               {projectData.map((project, index) => {
                 // we want to add animation delays to the first, second, and last items in the carousel.
                 // first item shows first (0), second item shows second (1), last item shows third (2), all other items show with no delay (undefined) as they never show. 
-                const showPos = index === 0 ? 0 : index === 1 ? 1 : index === projectData.length - 1 ? 2 : undefined;
+                const showPos = index === 0 ? 0.5 : index === 1 ? 1 : index === projectData.length - 1 ? 1.5 : undefined;
 
                 return(
                 <CarouselItem key={index} className='lg:basis-1/2 select-none'>
