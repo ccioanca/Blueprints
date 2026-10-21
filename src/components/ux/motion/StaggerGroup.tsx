@@ -1,26 +1,31 @@
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
-import { revealUp, staggerParent, motionTiming, easeOut } from "@/lib/motion";
-import { useState, type ReactNode } from "react";
+import { staggerParent, RevealContext } from "@/lib/motion";
+import { useContext, useRef, useState, useMemo, type ReactNode } from "react";
 
-export function StaggerGroup({ children, className }: { children: ReactNode; className?: string }) {
+export function StaggerGroup({ children, className, playOnce = false }: { children: ReactNode; className?: string; playOnce?: boolean }) {
+    const value = useMemo(
+        () => ({ mode: "inherit" as const, viewport: { once: playOnce, amount: 0.15 } }),
+        [playOnce],
+    );
+    
     return (
-        <motion.div className={className} variants={staggerParent} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.35 }}>
-            {children}
-        </motion.div>
+        <RevealContext.Provider value={value}>
+            <motion.div className={className} variants={staggerParent} initial="hidden" whileInView="show" viewport={value.viewport}>
+                {children}
+            </motion.div>
+        </RevealContext.Provider>
     );
 }
 
 export function StaggerItem({ children, className, customDelay }: { children: ReactNode; className?: string; customDelay?: number; }) {
     const [hasAnimatedState, setHasAnimated] = useState(false);
-
-
-
+    
     const itemVariants = {
         hidden: { opacity: 0, y: 25 },
         visible: ({ customDelay = 0 }: { customDelay?: number; }) => ({
             opacity: 1,
             y: 0,
-            transition: { duration: 0.7, delay: !hasAnimatedState ? (customDelay ?? 0) * 0.2 : 0 }, // Multiply position by seconds
+            transition: { duration: !hasAnimatedState ? 1 : 0.66, delay: !hasAnimatedState ? (customDelay ?? 0) * 0.75 : (customDelay ?? 0) * 0.33 }, // Multiply position by seconds
         }),
         expanded: { opacity: 1, scale: 1.1 }
     };
