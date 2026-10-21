@@ -32,23 +32,33 @@ export function StaggerItem({ children, className, customDelay }: { children: Re
     );
 }
 
-export function RevealOnScrollDirection({ children, className}: { children: ReactNode; className?: string}) {
+//TODO: This would just be better as a hook that uses a context, then we could set it up so that StaggerItem can just use the revealonscroll instead. 
+export function RevealOnScrollDirection({ children, className}: { children: ReactNode; className?: string}) { 
     const { scrollY } = useScroll()
-    const [yValue, setyValue] = useState(25)
+    const yRef = useRef(25)
+    const { mode, viewport } = useContext(RevealContext)
 
     useMotionValueEvent(scrollY, "change", (current) => {
         const diff = current - (scrollY.getPrevious() ?? current)
-        setyValue(diff > 0 ? -25 : 25)
+        if (diff !== 0) yRef.current = diff > 0 ? 25 : -25
     })
     
     return (
         <motion.div
             className={className}
-            initial={{ opacity: 0, y: yValue }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
+            variants={{
+                // Resolved when the animation starts (on entry), so the offset follows the entry scroll direction
+                hidden: { opacity: 0 },
+                show: () => ({ 
+                    opacity: 1, 
+                    y: [yRef.current, 0],
+                    transition: { duration: 0.7, ease: 'easeOut' }
+                }),
+            }}
+            // if a Reveal context is provided ("inherit"), omit these so the parent's variant state (and stagger) is inherited
+            {...mode === "inherit" ? {} : { initial: "hidden", whileInView: "show", viewport: viewport ?? { once: false } }}
         >
             {children}
-        </motion.div>
+        </motion.div>   
     );
 }
