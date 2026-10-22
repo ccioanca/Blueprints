@@ -1,10 +1,8 @@
-import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from '@/components/ui/button';
 import { ExternalLinkIcon, GithubIcon, LockIcon } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
-import { RevealOnScrollDirection, StaggerGroup, StaggerItem } from './ux/motion/StaggerGroup';
 
 interface ProjectProps {
   title: string;

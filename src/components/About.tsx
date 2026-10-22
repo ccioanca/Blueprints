@@ -1,8 +1,5 @@
 import Timeline from './ui/timeline';
 import Competencies from '@/components/Competencies';
-import { motion } from 'framer-motion';
-import { revealUp } from '@/lib/motion';
-import { SectionReveal } from '@/components/ux/motion/SectionReveal';
 import { RevealOnScrollDirection, StaggerGroup } from '@/components/ux/motion/StaggerGroup';
 
 
