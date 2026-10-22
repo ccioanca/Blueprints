@@ -1,8 +1,10 @@
+import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from '@/components/ui/button';
 import { ExternalLinkIcon, GithubIcon, LockIcon } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
+import { StaggerItem } from './ux/motion/StaggerGroup';
 
 interface ProjectProps {
   title: string;
@@ -57,8 +59,22 @@ const projectData: ProjectProps[] = [
 ];
 
 const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, tags, githubLink, pos }) => {
+  
+  //May be cleaner to make a useMediaQuery hook for this to handle matches; 
+  //but right now this is the only place I need it. 
+  //May also make sense to use "useEffect" here so that 
+  const [customDelayVal, setCustomDelayVal] = 
+  useState(window.matchMedia('(max-width: 768px)').matches ? 0 : pos ?? 0);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 768px)');
+    const onChange = () => setCustomDelayVal(mq.matches ? 0 : pos ?? 0);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
   return (
-    <StaggerItem className="flex flex-col h-full" customDelay={pos ?? 0}>
+    <StaggerItem className="flex flex-col h-full" customDelay={customDelayVal}>
       <Card className="flex flex-col h-full overflow-hidden dark:bg-card">
         <img src={image} alt={title} className="w-full h-0 lg:h-80 object-cover" />
         <CardHeader>
