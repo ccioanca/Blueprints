@@ -25,7 +25,7 @@ export function StaggerItem({ children, className, customDelay }: { children: Re
         visible: ({ customDelay = 0 }: { customDelay?: number; }) => ({
             opacity: 1,
             y: 0,
-            transition: { duration: !hasAnimatedState ? 1 : 0.66, delay: !hasAnimatedState ? (customDelay ?? 0) * 0.75 : (customDelay ?? 0) * 0.33 }, // Multiply position by seconds
+            transition: { duration: !hasAnimatedState ? 1 : 0.75, delay: !hasAnimatedState ? (customDelay ?? 0) * 0.75 : (customDelay ?? 0) * 0.5 }, // Multiply position by seconds
         }),
         expanded: { opacity: 1, scale: 1.1 }
     };
