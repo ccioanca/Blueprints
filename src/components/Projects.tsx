@@ -18,18 +18,40 @@ interface ProjectProps {
 }
 
 function sortCarouselIndexes(indexes: number[], totalItems: number) {
-  return [...indexes].sort((a, b) => {
-    const prevA = (a - 1 + totalItems) % totalItems;
-    const prevB = (b - 1 + totalItems) % totalItems;
+  
+  const sortedIndexes = indexes.sort();
+  const carouselSort: number[] = [];
 
-    const aHasPrev = indexes.includes(prevA);
-    const bHasPrev = indexes.includes(prevB);
+  //There will always be least two consecutive indexes
+  //we sort the array, and then always ensure that the odd one out
+  //is placed either before or after (the odd one out can only be the first or last item)
 
-    if (!aHasPrev) return -1;
-    if (!bHasPrev) return 1;
+  let oddOne: number | undefined;
 
-    return 0;
-  });
+  for (let i = 0; i < sortedIndexes.length; i++) {
+    const prev = (sortedIndexes[i] - 1);
+    const next = (sortedIndexes[i] + 1);
+
+    if (!sortedIndexes.includes(prev) && !sortedIndexes.includes(next)) {
+      oddOne = sortedIndexes[i];
+      break;
+    }
+  }
+
+  //the odd index out can either be 5 or 0 (first or last item in the carousel - assuming 6 items)
+  //0 should always come after the final index. so lets sort it that way
+  if (oddOne === 0) {
+    carouselSort.push(...sortedIndexes.filter(i => i !== 0));
+    carouselSort.push(0);
+  } else if (oddOne === totalItems - 1) {
+    carouselSort.push(oddOne);
+    carouselSort.push(...sortedIndexes.filter(i => i !== oddOne));
+  } else {
+    carouselSort.push(...sortedIndexes);
+    // alert("error");
+  }
+  
+  return carouselSort;
 }
 
 const projectData: ProjectProps[] = [
@@ -145,7 +167,6 @@ const Projects = () => {
     api.on('slidesInView', (api) => {
       const slides = api.slidesInView()
       setSlidesInView(slides)
-      console.log(slides)
     })
 
     // Clean up listener on unmount
@@ -173,10 +194,9 @@ const Projects = () => {
             setApi={setApi}>
             <CarouselContent className='py-2'>
               {projectData.map((project, index) => {
-
                 const sortedSlidesInView = sortCarouselIndexes(slidesInView, projectData.length)
                 //we should have a list of slides that are currently in view
-                let showPos = sortedSlidesInView[0] == index ? 0.5 : sortedSlidesInView[1] == index ? 0 : sortedSlidesInView[2] == index ? 1 : 0;
+                let showPos = sortedSlidesInView[0] == index ? 1 : sortedSlidesInView[1] == index ? 0 : sortedSlidesInView[2] == index ? 0.5 : 0;
 
                 return(
                 <CarouselItem key={index} className='lg:basis-1/2 select-none'>
