@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from '@/components/ui/button';
 import { ExternalLinkIcon, GithubIcon, LockIcon } from 'lucide-react';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
+import { Carousel, CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
 import { StaggerItem } from './ux/motion/StaggerGroup';
+import useEmblaCarousel from 'embla-carousel-react';
+import { EmblaCarouselType, EmblaEventType } from 'embla-carousel';
 
 interface ProjectProps {
   title: string;
@@ -13,6 +15,21 @@ interface ProjectProps {
   tags: string[];
   githubLink?: string;
   pos?: number;
+}
+
+function sortCarouselIndexes(indexes: number[], totalItems: number) {
+  return [...indexes].sort((a, b) => {
+    const prevA = (a - 1 + totalItems) % totalItems;
+    const prevB = (b - 1 + totalItems) % totalItems;
+
+    const aHasPrev = indexes.includes(prevA);
+    const bHasPrev = indexes.includes(prevB);
+
+    if (!aHasPrev) return -1;
+    if (!bHasPrev) return 1;
+
+    return 0;
+  });
 }
 
 const projectData: ProjectProps[] = [
@@ -63,15 +80,16 @@ const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, tags, 
   //May be cleaner to make a useMediaQuery hook for this to handle matches; 
   //but right now this is the only place I need it. 
   //May also make sense to use "useEffect" here so that 
-  const [customDelayVal, setCustomDelayVal] = 
-  useState(window.matchMedia('(max-width: 768px)').matches ? 0 : pos ?? 0);
+  const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 768px)').matches);
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 768px)');
-    const onChange = () => setCustomDelayVal(mq.matches ? 0 : pos ?? 0);
+    const onChange = () => setIsMobile(mq.matches);
     mq.addEventListener('change', onChange);
     return () => mq.removeEventListener('change', onChange);
   }, []);
+
+  const customDelayVal = isMobile ? 0 : pos ?? 0;
 
   return (
     <StaggerItem className="flex flex-col h-full" customDelay={customDelayVal}>
@@ -111,6 +129,32 @@ const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, tags, 
 };
 
 const Projects = () => {
+  const [scrollingState, setScrollingState] = useState<boolean>(false);
+  const [slidesInView, setSlidesInView] = useState<number[]>([0, 1, projectData.length - 1]);
+
+  const [api, setApi] = React.useState<CarouselApi>()
+
+  useEffect(() => {
+    if (!api) return
+
+    const onSettle = () => setScrollingState(false)
+    const onScroll = () => setScrollingState(true)
+
+    api.on('settle', onSettle)
+    api.on('scroll', onScroll)
+    api.on('slidesInView', (api) => {
+      const slides = api.slidesInView()
+      setSlidesInView(slides)
+      console.log(slides)
+    })
+
+    // Clean up listener on unmount
+    return () => {
+      api.off('scroll', onScroll)
+      api.off('settle', onSettle)
+      api.off('slidesInView', api.slidesInView)
+    }
+  }, [api])
   return (
     <section id="projects" className="py-16 relative">
       <div className='section'>
@@ -125,16 +169,18 @@ const Projects = () => {
             opts={{
               align: "center",
               loop: true,
-            }}>
+            }}
+            setApi={setApi}>
             <CarouselContent className='py-2'>
               {projectData.map((project, index) => {
-                // we want to add animation delays to the first, second, and last items in the carousel.
-                // first item shows first (0), second item shows second (1), last item shows third (2), all other items show with no delay (undefined) as they never show. 
-                const showPos = index === 0 ? 0.5 : index === 1 ? 1 : index === projectData.length - 1 ? 1.5 : undefined;
+
+                const sortedSlidesInView = sortCarouselIndexes(slidesInView, projectData.length)
+                //we should have a list of slides that are currently in view
+                let showPos = sortedSlidesInView[0] == index ? 0.5 : sortedSlidesInView[1] == index ? 0 : sortedSlidesInView[2] == index ? 1 : 0;
 
                 return(
                 <CarouselItem key={index} className='lg:basis-1/2 select-none'>
-                  <ProjectCard key={index} pos={showPos} {...project} />
+                  <ProjectCard key={index} pos={scrollingState ? 0 : showPos} {...project} />
                 </CarouselItem>)
               })}
             </CarouselContent>
